@@ -1,4 +1,4 @@
-class BlogController < ApplicationController
+class BlogsController < ApplicationController
   before_action :set_blog, only: %i[show edit update destroy]
 
   def index
@@ -6,17 +6,17 @@ class BlogController < ApplicationController
   end
 
   def new
-    @blog = Blog.new
+    @blogs = Blog.new
   end
 
   def show
-    @blog = Blog.where(id: params[:id]).first
+    @blogs = Blog.where(id: params[:id]).first
   end
 
   def create
-    @blog = Blog.new(post_params)
-    @blog.user = current_user
-    if @blog.save
+    @blogs = Blog.new(post_params)
+    @blogs.user = current_user
+    if @blogs.save
       redirect_to blog_path(@blog)
     else
       render :new
@@ -27,15 +27,15 @@ class BlogController < ApplicationController
   end
 
   def update
-    if @blog.update(post_params)
-      redirect_to blog_path(@blog), notice: 'Blog was successfully updated.'
+    if @blogs.update(post_params)
+      redirect_to blog_path(@blogs), notice: 'Blog was successfully updated.'
     else
       render :edit
     end
   end
 
   def destroy
-    @blog.destroy
+    @blogs.destroy
     redirect_to blog_path, notice: 'Blog was successfully destroyed.'
   end
 
