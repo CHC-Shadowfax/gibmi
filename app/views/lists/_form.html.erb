@@ -1,0 +1,6 @@
+<%= simple_form_for @list do |f| %>
+  <%= f.input :name, placeholder: 'List name' %>
+  <%= f.input :event_date, placeholder: 'Date of your event' %>
+  <%= f.input :description, placeholder: 'Add description' %>
+  <%= f.submit "Save", class: "btn btn-primary rounded-pill text-center" %>
+<% end %>
