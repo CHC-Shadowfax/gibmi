@@ -1,0 +1,2 @@
+class GiftLink < ApplicationRecord
+end
