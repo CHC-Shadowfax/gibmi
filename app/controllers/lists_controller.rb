@@ -1,21 +1,31 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: [:edit, :update, :destroy]
 
   def index
     @lists = List.all
+    @lists = policy_scope(List)
   end
 
   def show
+    skip_authorization
+    @list = List.find_by(code: params[:code])
+    if @list.nil?
+      redirect_to lists_path
+      flash[:alert] = "Not existent list"
+    end
   end
 
   def new
     @list = List.new
+    authorize @list
   end
 
   def create
-    list = List.new(list_params)
+    @list = List.new(list_params)
+    @list.user = current_user
+    authorize @list
 
-    if list.save
+    if @list.save
       redirect_to lists_path
     else
       render :new
@@ -26,7 +36,8 @@ class ListsController < ApplicationController
   end
 
   def update
-    if list.update(list_params)
+    authorize @list
+    if @list.update(list_params)
       redirect_to lists_path
     else
       render :edit
@@ -34,7 +45,8 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    list.destroy
+    authorize @list
+    @list.destroy
 
     redirect_to lists_path
   end

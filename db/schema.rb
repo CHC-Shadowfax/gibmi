@@ -25,6 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_08_183131) do
   create_table "lists", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.string "code"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
