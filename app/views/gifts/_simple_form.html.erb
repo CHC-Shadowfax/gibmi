@@ -1,0 +1,6 @@
+  <%= simple_form_for @gift do |f| %>
+  <%= f.input :name, placeholder: ' Name your gift!' %>
+  <%= f.input :description, placeholder: 'Add description' %>
+  <%= f.input :photo, as: :file, placeholder: 'Add photo' %>
+  <%= f.submit "Save", class: "btn btn-primary rounded-pill text-center" %>
+<% end %>

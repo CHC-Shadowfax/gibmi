@@ -1,0 +1,7 @@
+<div class= "border bag-show">
+  <h5 class="card-title"><%= gift.name %></h5>
+   <center> <%= cl_image_tag gift.photo.key %> </center>
+   <p class="card-text"><strong>Description</strong>:<%= gift.description %></p>
+   <!--% gift.features.each do |feature| %>
+     <p class="card-text"><strong><%= feature.name %></strong>: <%= feature.value %></p>
+    <% end %->
