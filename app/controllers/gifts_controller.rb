@@ -1,19 +1,19 @@
 class GiftsController < ApplicationController
   before_action :set_gift, only: %i[show edit update destroy]
   def index
-    @gifts = Gift.all
+    @gifts = policy_scope Gift.all
   end
 
   def new
-    @gift = Gift.new
+    @gift = authorize Gift.new
   end
 
   def show
-    @gifts = Gift.where(id: params[:id])
+    @gift = authorize Gift.find_by(id: params[:id])
   end
 
   def create
-    @gift = Gift.new(gift_params)
+    @gift = authorize Gift.new(gift_params)
     @gift.user = current_user
     if @gift.save
       redirect_to gift_path(@gift)
@@ -23,7 +23,16 @@ class GiftsController < ApplicationController
   end
 
   def edit
-    @gift = Gift.find(params[:id])
+    @gift = authorize Gift.find(params[:id])
+  end
+
+  def update
+    @gift = authorize Gift.find(params[:id])
+    if @gift.update(gift_params)
+      redirect_to gift_path(@gift)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -38,6 +47,6 @@ class GiftsController < ApplicationController
   end
 
   def gift_params
-    params.require(:gift).permit(:name, :description, :photo)
+    params.require(:gift).permit(:name, :description, :photo, :list_id)
   end
 end

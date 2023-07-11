@@ -1,6 +1,8 @@
 class List < ApplicationRecord
   belongs_to :user
 
+  has_many :gifts
+
   after_create :generate_code
 
   def generate_code

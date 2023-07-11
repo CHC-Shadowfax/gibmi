@@ -1,3 +1,11 @@
 <h1> <%= @list.name %> </h1>
 <p><%= @list.event_date %></p>
 <p><%= @list.description %></p>
+<p><% @list.gifts.each do |gift|%>
+  <%= gift.name %>
+  <%= gift.description %>
+  <%= cl_image_tag gift.photo.key %>
+<% end %></p>
+
+<%= link_to "Add new gift", new_gift_path %>
+<%= link_to "Edit gift", edit_gift_path %>
