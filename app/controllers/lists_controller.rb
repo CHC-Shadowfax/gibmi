@@ -33,6 +33,7 @@ class ListsController < ApplicationController
   end
 
   def edit
+    @list = authorize List.find(params[:id])
   end
 
   def update
