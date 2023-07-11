@@ -7,8 +7,8 @@ class ListsController < ApplicationController
   end
 
   def show
-    skip_authorization
-    @list = List.find_by(code: params[:code])
+    @list = authorize List.find_by(code: params[:code])
+
     if @list.nil?
       redirect_to lists_path
       flash[:alert] = "Not existent list"
@@ -55,7 +55,7 @@ class ListsController < ApplicationController
  private
 
   def list_params
-    params.require(:list).permit(:name, :description, :event_date)
+    params.require(:list).permit(:name, :description, :event_date, :address)
   end
 
   def set_list
