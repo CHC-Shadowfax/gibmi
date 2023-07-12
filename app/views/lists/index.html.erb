@@ -1,14 +1,30 @@
+<%# sección de búsqueda %>
+
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: lists_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a GIBMI list! #CODE or @user_name"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<%# sección de búsqueda %>
+
 <h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+
 <ul>
   <% @lists.each do |list| %>
     <li><%= list.name %></li>
   <% end %>
 </ul>
-<%= form_tag list_path(List.all.first), method: :get do %>
+<%= form_tag lists_path(List.all.first), method: :get do %>
   <%= label_tag :code, "Enter Code" %>
   <%= text_field_tag :code %>
   <%= submit_tag "Submit" %>
 <% end %>
 <%= link_to "New list", new_list_path %>
-

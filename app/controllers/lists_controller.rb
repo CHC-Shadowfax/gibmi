@@ -4,6 +4,12 @@ class ListsController < ApplicationController
   def index
     @lists = List.all
     @lists = policy_scope(List)
+  # pendiente validar la lógica de búsqueda no choque con el poundit
+    if params[:query].present?
+      @lists = List.search_by_code_or_user_email(params[:query])
+    else
+      @list = List.all
+    end
   end
 
   def show
