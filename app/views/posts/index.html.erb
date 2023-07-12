@@ -1,0 +1,16 @@
+<h1>Welcome to our blog!</h1>
+<h2> See our posts below </h2>
+<div class="posts-container">
+  <% @posts.each do |post| %>
+    <div class= "post">
+      <%= link_to post do %>
+        <%= image_tag post.photo.url %>
+        <p><%= post.title %></p>
+        <p><%= post.content %></p>
+      <%end%>
+    </div>
+  <% end %>
+</div>
+<% if current_user.admin? %>
+  <%= link_to "Add post", new_post_path %>
+<%end%>
