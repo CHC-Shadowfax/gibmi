@@ -1,2 +1,20 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<h1> <%= @list.name %> </h1>
+<p><%= @list.event_date %></p>
+<p><%= @list.description %></p>
+<ul>
+<% @list.gifts.each do |gift|%>
+ <li> <%= gift.name %></li>
+  <%= gift.description %>
+  <%= gift.address %>
+  <%= cl_image_tag gift.photo.key %>
+<% end %>
+</ul>
+<%= link_to "Add new gift", new_gift_path %>
+<%= link_to "Edit gift", edit_gift_path %>
+<% if @list.user_id == current_user.id %>
+      <h4 class="btn btn-lg" > <%= link_to "Delete",
+        list_path(@list),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %> </h4>
+    <% end %>
+<%= link_to "Edit list", edit_list_path %>

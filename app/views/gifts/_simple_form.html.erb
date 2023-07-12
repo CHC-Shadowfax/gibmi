@@ -1,0 +1,32 @@
+  <%= simple_form_for @gift do |f| %>
+  <%= f.input :name, placeholder: ' Name your gift!' %>
+  <%= f.input :description, placeholder: 'Add description' %>
+  <%= f.input :list_id, as: :select, collection: List.all %>
+  <%= f.input :photo, as: :file, placeholder: 'Add photo' %>
+  <%= f.input :address, input_html: { id: 'pac-input' }%>
+  <%= f.submit "Save", class: "btn btn-primary rounded-pill text-center" %>
+<% end %>
+
+ <div id="map"></div>
+
+ <script>
+  var center = { lat: 50.064192, lng: -130.605469 };
+  // Create a bounding box with sides ~10km away from the center point
+  var defaultBounds = {
+    north: center.lat + 0.1,
+    south: center.lat - 0.1,
+    east: center.lng + 0.1,
+    west: center.lng - 0.1,
+  };
+  var input = document.getElementById("pac-input");
+  var options = {
+    bounds: defaultBounds,
+    componentRestrictions: { country: ["us", "mx"] },
+    fields: ["address_components", "geometry", "icon", "name"],
+    strictBounds: false,
+    types: ["establishment"]
+  };
+  if (google.maps.places) {
+    var autocomplete = new google.maps.places.Autocomplete(input, options);
+  }
+ </script>

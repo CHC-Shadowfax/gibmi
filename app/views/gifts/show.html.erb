@@ -1,0 +1,14 @@
+<div>
+  <%= render 'gift', gift: @gift%>
+    <% if @gift.user_id == current_user.id %>
+      <h4 class="btn btn-lg"><%= link_to "Edit this gift" , edit_gift_path(@gift) %>  </h4>
+    <% end %>
+      <h4 class="btn btn-lg"><%= link_to "Back to list", list_path(@gift.list, code: @gift.list.code) %> </h4>
+
+    <% if @gift.user_id == current_user.id %>
+      <h4 class="btn btn-lg" > <%= link_to "Delete",
+        gift_path(@gift),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %> </h4>
+    <% end %>
+</div>

@@ -1,2 +1,10 @@
-<h1>Lists#edit</h1>
-<p>Find me in app/views/lists/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="container p-5 rounded">
+        <h1><strong>Edit this List</strong> </h1>
+        <%= render 'form', list: @list %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,7 +10,7 @@ Rails.application.configure do
     port: 26,
     user_name: 'latamtrip@gibmi.com.mx',
     password: ENV[EMAIL_PASSWORD],
-    domain: "dominio",
+    domain: "gibmi.com.mx",
     authentication: :plain,
     enable_starttls_auto: true
   }
