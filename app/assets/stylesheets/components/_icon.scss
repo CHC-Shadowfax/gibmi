@@ -1,0 +1,13 @@
+.i {
+  flex: auto;
+  size: 5px;
+  justify-items: flex-start;
+  margin-bottom: 0;
+}
+
+// Compare this snippet from app/assets/stylesheets/components/_button.scss:
+
+img {
+  width: 4%;
+  border-radius: 8px 8px 0 0;
+}
