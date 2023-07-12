@@ -42,7 +42,7 @@ class PostsController < ApplicationController
   def destroy
     @post = authorize Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path, notice: "Post was successfully destroyed.", status: :see_other
+    redirect_to posts_path, notice: "Post was successfully deleted.", status: :see_other
   end
 
   private
