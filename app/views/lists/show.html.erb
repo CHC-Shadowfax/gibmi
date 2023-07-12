@@ -1,20 +1,29 @@
-<h1> <%= @list.name %> </h1>
-<p><%= @list.event_date %></p>
-<p><%= @list.description %></p>
-<ul>
-<% @list.gifts.each do |gift|%>
- <li> <%= gift.name %></li>
-  <%= gift.description %>
-  <%= gift.address %>
-  <%= cl_image_tag gift.photo.key %>
-<% end %>
-</ul>
-<%= link_to "Add new gift", new_gift_path %>
-<%= link_to "Edit gift", edit_gift_path %>
-<% if @list.user_id == current_user.id %>
-      <h4 class="btn btn-lg" > <%= link_to "Delete",
+<div class= "list-container">
+  <h1 class="list-name-container"> <%= @list.name %> </h1>
+  <p><%= @list.event_date %></p>
+  <p><%= @list.description %></p>
+</div>
+
+<div class= "actions-container">
+  <% if @list.user_id == current_user.id %>
+   <%= link_to "Delete",
         list_path(@list),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-      %> </h4>
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
     <% end %>
-<%= link_to "Edit list", edit_list_path %>
+  <%= link_to "Edit list", edit_list_path %>
+  <%= link_to "Add new gift", new_gift_path %>
+</div>
+
+<div class="gifts-container">
+  <% @list.gifts.each do |gift|%>
+    <%= link_to gift do %>
+        <div class="gift">
+            <%=cl_image_tag gift.photo.key %>
+        <div class="card-container">
+            <h5 class="card_title"><%=gift.name%></h5>
+            <p class="card_text"><%= gift.description %></p>
+        </div>
+        </div>
+    <% end %>
+  <% end %>
+</div>
