@@ -6,10 +6,10 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
-  enum role: %i[prospect user admin]
+  enum role: %i[user admin]
   after_initialize :set_default_role, if: :new_record?
 
   def set_default_role
-    self.role ||= :prospect
+    self.role ||= :user
   end
 end

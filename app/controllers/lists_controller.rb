@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_list, only: [:edit, :update, :destroy]
 
   def index
@@ -7,7 +8,12 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = authorize List.find_by(code: params[:code])
+    if user_signed_in?
+      @list = List.find(params[:id])
+      authorize @list
+    else
+      @list = authorize List.find_by(code: params[:code])
+    end
 
     if @list.nil?
       redirect_to lists_path
@@ -26,7 +32,7 @@ class ListsController < ApplicationController
     authorize @list
 
     if @list.save
-      redirect_to lists_path
+      redirect_to list_path(@list)
     else
       render :new
     end

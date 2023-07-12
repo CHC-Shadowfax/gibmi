@@ -2,7 +2,7 @@
 <p>Find me in app/views/lists/index.html.erb</p>
 <ul>
   <% @lists.each do |list| %>
-    <li><%= list.name %></li>
+    <li><%= link_to list.name, list %></li>
   <% end %>
 </ul>
 <%= form_tag list_path(List.all.first), method: :get do %>
@@ -11,4 +11,3 @@
   <%= submit_tag "Submit" %>
 <% end %>
 <%= link_to "New list", new_list_path %>
-
