@@ -16,7 +16,7 @@
       <%= link_to post do %>
         <%= image_tag post.photo.url %>
         <div class= "post_title" >
-          <p><%= post.title %></p>
+          <%= post.title %>
         </div>
         <div class= "post_content">
           <p><%= post.content %></p>
@@ -25,6 +25,9 @@
       <%end%>
     </div>
   <% end %>
+</div>
+<div class= "top-blogs">
+  <h2> Recommended </h2>
 </div>
 <% if current_user.admin? %>
   <div class="btn btn-primary">
