@@ -5,13 +5,22 @@
 </div>
 
 <div class= "actions-container">
-  <% if @list.user_id == current_user.id %>
-   <%= link_to "Delete",
-        list_path(@list),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+ <%= link_to new_gift_path do %>
+      <i class="fa-solid fa-circle-plus" style="color: #780078;"></i>
     <% end %>
-  <%= link_to "Edit list", edit_list_path %>
-  <%= link_to "Add new gift", new_gift_path %>
+
+  <%= link_to edit_list_path(@list) do  %>
+      <i class="fa-regular fa-pen-to-square" style="color: #780078;"></i>
+    <% end %>
+  <% if @list.user_id == current_user.id %>
+    <%= link_to(list_path(@list),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}) do %>
+    <i class="fa-solid fa-trash" style="color: #780078;"></i>
+    <% end %>
+  <% end %>
+
+
+
 </div>
 
 <div class="gifts-container">
