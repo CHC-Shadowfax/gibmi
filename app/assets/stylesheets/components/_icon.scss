@@ -1,12 +1,11 @@
 .i {
-  flex: auto;
-  size: 1px;
-  margin-bottom: 0;
+  // size: 1px;
+  margin-bottom: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px 8px 8px 8px;
+
+
 }
 
 // Compare this snippet from app/assets/stylesheets/components/_button.scss:
-
-img {
-  width: 8%;
-  border-radius: 8px 8px 8px 8px;
-}
