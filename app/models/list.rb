@@ -3,6 +3,8 @@ class List < ApplicationRecord
 
   has_many :gifts, dependent: :destroy
 
+  has_one_attached :photo
+
   after_create :generate_code
 
   def generate_code

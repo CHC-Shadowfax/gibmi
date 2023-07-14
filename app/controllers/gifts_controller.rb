@@ -16,7 +16,7 @@ class GiftsController < ApplicationController
     @gift = authorize Gift.new(gift_params)
     @gift.user = current_user
     if @gift.save
-      redirect_to gift_path(@gift)
+       redirect_to gift_path(@gift)
     else
       render :new, status: :unprocessable_entity
     end
