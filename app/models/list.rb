@@ -13,7 +13,7 @@ class List < ApplicationRecord
       user: [:email]
     },
     using: {
-      # tsearch: { prefix: true }
+      tsearch: { prefix: false }
     }
 
   def generate_code
