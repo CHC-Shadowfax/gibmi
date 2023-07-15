@@ -1,8 +1,12 @@
-<h1 class="text-center p-3">My lists</h1>
+<div>
+  <h1 class="text-center p-3">My lists</h1>
+</div>
+<div class="container">
+  <%= link_to "New list", new_list_path %>
+</div>
 <%= render 'shared/lists_card', lists: @lists %>
 <%= form_tag list_path(List.all.first), method: :get do %>
   <%= label_tag :code, "Enter Code" %>
   <%= text_field_tag :code %>
   <%= submit_tag "Submit" %>
 <% end %>
-<%= link_to "New list", new_list_path %>
