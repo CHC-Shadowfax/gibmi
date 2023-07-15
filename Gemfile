@@ -80,3 +80,5 @@ end
 
 gem "will_paginate"
 gem "cloudinary"
+gem "ruby-openai"
+gem "httparty"
