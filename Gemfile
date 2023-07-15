@@ -78,6 +78,7 @@ group :test do
   gem "webdrivers"
 end
 
+gem "will_paginate"
 gem "cloudinary"
 gem "ruby-openai"
 gem "httparty"
