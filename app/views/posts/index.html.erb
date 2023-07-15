@@ -52,18 +52,44 @@
                   <img class="i" src="https://cdn-icons-png.flaticon.com/128/2549/2549594.png" alt="icon">
                 </div>
               </div>
-              <div class="d-flex justify-content-center">
-                <img class="i" src="https://cdn-icons-png.flaticon.com/128/2549/2549594.png" alt="icon">
-                <h2>Sign Up Now</h2>
-                <img class="i" src="https://cdn-icons-png.flaticon.com/128/2549/2549594.png" alt="icon">
+              <div class="list-group">
+                <a href="http://localhost:3000/posts/12" class="list-group-item list-group-item-action">
+                  <div class = "row no-gutters">
+                    <div class="col-auto d-flex align-items-center">
+                      1.-
+                      <div class="col-d-flex align-itmes-center px-1">
+                        <img data-src="https://images.unsplash.com/photo-1524677380467-30abe3c55345?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZSUyMGdpdmluZyUyMGdpZnRzfGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60" class="card-img-top b-lazy initial loaded" alt="Giving is a love language" src="https://images.unsplash.com/photo-1524677380467-30abe3c55345?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZSUyMGdpdmluZyUyMGdpZnRzfGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60">
+                      </div>
+                      <div class="col-9 d-flex align-items-center">
+                        <small> Giving is a love language</small>
+                      </div>
+                    </div>
+                  </div>
+                </a>
               </div>
+            </div>
+            <div class="d-flex justify-content-center">
+              <img class="i" src="https://cdn-icons-png.flaticon.com/128/2549/2549594.png" alt="icon">
+              <h2>Remember the Gift</h2>
+              <img class="i" src="https://cdn-icons-png.flaticon.com/128/2549/2549594.png" alt="icon">
+            </div>
+            <div class="card-body">
+              <p>Don't forget to give a gift to your loved ones.</p>
+              <img class="signimg" src="https://images.unsplash.com/photo-1522543558187-768b6df7c25c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHB1cnBsZXxlbnwwfHwwfHx8Mg%3D%3D&auto=format&fit=crop&w=500&q=60">
+            </div>
+            <div>
+              <h5 class="card-title">Sign up now and start the gibMi expierence.</h5>
+              <p class="card-text">Make gift giving easy for everyone. </p>
+              <div class="btn btn-primary">Sign Up</div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <% if current_user.admin? %>
-      <div class="btn btn-primary">
-        <%= link_to "Add a new post", new_post_path %>
-      </div>
-    <%end%>
+  </div>
+</div>
+<% if current_user.admin? %>
+  <div class="btn btn-primary">
+    <%= link_to "Add a new post", new_post_path %>
+  </div>
+<%end%>
