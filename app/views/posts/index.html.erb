@@ -87,9 +87,9 @@
       </div>
     </div>
   </div>
+  <% if current_user.admin? %>
+    <div class="btn btn-primary">
+      <%= link_to "Add a new post", new_post_path %>
+    </div>
+  <%end%>
 </div>
-<% if current_user.admin? %>
-  <div class="btn btn-primary">
-    <%= link_to "Add a new post", new_post_path %>
-  </div>
-<%end%>
