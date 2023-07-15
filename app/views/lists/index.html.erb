@@ -19,7 +19,7 @@
 
 <ul>
   <% @lists.each do |list| %>
-    <li><%= list.name %></li>
+    <li><%= link_to list.name, list %></li>
   <% end %>
 </ul>
 <%= form_tag lists_path(List.all.first), method: :get do %>
@@ -28,3 +28,5 @@
   <%= submit_tag "Submit" %>
 <% end %>
 <%= link_to "New list", new_list_path %>
+
+<% console %>

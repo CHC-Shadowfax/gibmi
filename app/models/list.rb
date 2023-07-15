@@ -10,10 +10,10 @@ class List < ApplicationRecord
   pg_search_scope :search_by_code_or_user_email,
     against: [:code],
     associated_against: {
-      users: [:email]
+      user: [:email]
     },
     using: {
-      tsearch: { prefix: true }
+      # tsearch: { prefix: true }
     }
 
   def generate_code

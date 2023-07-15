@@ -1,19 +1,34 @@
 class ListsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show, :index]
   before_action :set_list, only: [:edit, :update, :destroy]
 
   def index
-    @lists = List.all
+  # @lists = List.all
     @lists = policy_scope(List)
   # pendiente validar la lógica de búsqueda no choque con el poundit
     if params[:query].present?
       @lists = List.search_by_code_or_user_email(params[:query])
     else
-      @list = List.all
+      @lists
+    end
+    if user_signed_in?
+      @lists = List.find(user: current_user)
+    else
+      if params[:query].present?
+        @lists = List.search_by_code_or_user_email(params[:query])
+      else
+        @lists = []
+      end
     end
   end
 
   def show
-    @list = authorize List.find_by(code: params[:code])
+    if user_signed_in?
+      @list = List.find(params[:id])
+      authorize @list
+    else
+      @list = authorize List.find_by(code: params[:code])
+    end
 
     if @list.nil?
       redirect_to lists_path
