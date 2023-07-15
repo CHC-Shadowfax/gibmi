@@ -28,6 +28,13 @@
                 <div class= "post_content">
                   <p><%= post.content %></p>
                   <div class="btn btn-outline-info"> <%= link_to "Read more", post_path(post) %> </div>
+                  <div class="card-footer text-right">
+                    <small class="text-muted">
+                      <p class="date">Created on:
+                        <%= post.created_at.strftime("%m/%d/%Y") %> </p>
+                      <span class="font-weight-bold"> -gibMi Team</span>
+                    </small>
+                  </div>
                 </div>
               <%end%>
             </div>
