@@ -1,15 +1,7 @@
 <h1>Lists#index</h1>
-
 <% if @lists.count == 0 %>
   <h1>CREATE A LIST!!! PAN!!!!</h1>
 <% else %>
-  <ul>
-    <% @lists.each do |list| %>
-      <li><%= link_to list.name, list_path(list, query: list.code) %></li>
-    <% end %>
-  </ul>
+  <%= render 'shared/lists_card', lists: @lists %>
 <% end %>
-
 <%= link_to "New list", new_list_path %>
-
-<% console %>

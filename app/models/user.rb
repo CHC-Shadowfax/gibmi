@@ -9,13 +9,13 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :categories
 
-  enum role: %i[prospect user admin]
+  enum role: %i[user admin]
   after_initialize :set_default_role, if: :new_record?
 
   has_many :lists, dependent: :destroy
 
   def set_default_role
-    self.role ||= :prospect
+    self.role ||= :user
   end
 
   def categories_list=(categories)
