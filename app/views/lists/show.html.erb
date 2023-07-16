@@ -30,7 +30,9 @@
   <% @list.gifts.each do |gift|%>
     <%= link_to gift do %>
         <div class="gift">
+        <% if gift.photo.attached? %>
             <%=cl_image_tag gift.photo.key %>
+        <% end %>
         <div class="card-container">
             <h5 class="card_title"><%=gift.name%></h5>
             <p class="card_text"><%= gift.description %></p>
