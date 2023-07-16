@@ -12,6 +12,8 @@ class User < ApplicationRecord
   enum role: %i[prospect user admin]
   after_initialize :set_default_role, if: :new_record?
 
+  has_many :lists, dependent: :destroy
+
   def set_default_role
     self.role ||= :prospect
   end

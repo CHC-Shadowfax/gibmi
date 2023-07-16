@@ -1,13 +1,24 @@
 class ListsController < ApplicationController
+  skip_after_action :verify_authorized, only: [:show]
+  skip_before_action :authenticate_user!, only: [:show, :index]
   before_action :set_list, only: [:edit, :update, :destroy]
 
   def index
-    @lists = List.all
-    @lists = policy_scope(List)
+    @lists = nil
+    if user_signed_in? && !params[:query].present?
+      @lists = policy_scope(List).where(user: current_user)
+    else
+      @lists = policy_scope(List).search_by_code_or_user_email(params[:query])
+      redirect_to list_path(@lists.first, query: params[:query]) if @lists.count == 1
+    end
   end
 
   def show
-    @list = authorize List.find_by(code: params[:code])
+    if user_signed_in?
+      @list = List.find(params[:id])
+    else
+      @list = List.find_by(code: params[:query])
+    end
 
     if @list.nil?
       redirect_to lists_path
