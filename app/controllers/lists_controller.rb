@@ -42,7 +42,7 @@ class ListsController < ApplicationController
       render :new
     end
   end
-
+  
   def edit
     @list = authorize List.find(params[:id])
   end

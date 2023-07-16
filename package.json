@@ -8,6 +8,7 @@
     "bootstrap": "^5.3.0",
     "scandit-web-datacapture-barcode": "^6.18.0",
     "scandit-web-datacapture-core": "^6.18.0",
+    "slim-select": "^2.6.0",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4"
   },
