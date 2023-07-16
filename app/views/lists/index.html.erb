@@ -5,8 +5,3 @@
   <%= link_to "New list", new_list_path %>
 </div>
 <%= render 'shared/lists_card', lists: @lists %>
-<%= form_tag list_path(List.all.first), method: :get do %>
-  <%= label_tag :code, "Enter Code" %>
-  <%= text_field_tag :code %>
-  <%= submit_tag "Submit" %>
-<% end %>

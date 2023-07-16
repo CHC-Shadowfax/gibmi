@@ -61,7 +61,7 @@ class ListsController < ApplicationController
     authorize @list
     @list.destroy
 
-    redirect_to lists_path
+    redirect_to list_path
   end
 
  private
