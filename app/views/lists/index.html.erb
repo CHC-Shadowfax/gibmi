@@ -1,7 +1,7 @@
-<div>
-  <h1 class="text-center p-3">My lists</h1>
-</div>
-<div class="container">
-  <%= link_to "New list", new_list_path %>
-</div>
-<%= render 'shared/lists_card', lists: @lists %>
+<h1>Lists#index</h1>
+<% if @lists.count == 0 %>
+  <h1>CREATE A LIST!!! PAN!!!!</h1>
+<% else %>
+  <%= render 'shared/lists_card', lists: @lists %>
+<% end %>
+<%= link_to "New list", new_list_path %>

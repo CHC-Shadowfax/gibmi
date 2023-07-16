@@ -36,8 +36,8 @@ class GiftsController < ApplicationController
   end
 
   def destroy
-    @gift.destroy
-    redirect_to gifts_path, notice: 'Gift was successfully destroyed.', status: :see_other
+    authorize @gift.destroy
+    redirect_to list_path(@gift.list, code: @gift.list.code), notice: 'Gift was successfully destroyed.', status: :see_other
   end
 
   private
