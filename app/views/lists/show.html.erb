@@ -5,20 +5,32 @@
 </div>
 <div class= "actions-container">
   <%= link_to new_gift_path do %>
-    <i class="fa-solid fa-circle-plus" style="color: #780078;"></i>
+    <i class="fa-solid fa-circle-plus" style="color: #D0BDF4;"></i>
   <% end %>
   <%= link_to edit_list_path(@list) do  %>
-    <i class="fa-regular fa-pen-to-square" style="color: #780078;"></i>
+    <i class="fa-regular fa-pen-to-square" style="color: #D0BDF4;"></i>
   <% end %>
+
   <% if current_user && @list.user_id == current_user.id %>
     <%= link_to(list_path(@list),
         data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}) do %>
-      <i class="fa-solid fa-trash" style="color: #780078;"></i>
+      <i class="fa-solid fa-trash" style="color: #D0BDF4;"></i>
     <% end %>
   <% end %>
+
+  <a href="#" class="share-qr-code">
+    <i class="fa-solid fa-qrcode" style="color: #D0BDF4;"></i>
+  </a>
+
+  <div class="modal">
+    <div class="model-container">
+      <i class="fa-solid fa-xmark" id="close-modal" style="color: #D0BDF4;"></i>
+      <canvas id="qrcode"></canvas>
+    </div>
+  </div>
+
 </div>
-<%= link_to "Add new gift", new_gift_path %>
-<%= link_to "Edit gift", edit_gift_path %>
+
 <div class="gifts-container">
   <% @list.gifts.each do |gift|%>
     <%= link_to gift do %>
@@ -34,3 +46,26 @@
     <% end %>
   <% end %>
 </div>
+
+<script>
+  var shareQrCode = document.querySelector(".share-qr-code");
+  var modal = document.querySelector(".modal");
+  var canvas = document.getElementById("qrcode");
+  var close = document.getElementById("close-modal");
+
+  var qrCode = new QRious({
+    element: canvas,
+    value: `<%= list_url(@list) %>`,
+    size: 200
+  });
+
+  shareQrCode.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.classList.add("active");
+  });
+
+  close.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.classList.remove("active");
+  });
+</script>

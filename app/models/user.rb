@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable #:confirmable
 
   has_one_attached :photo
-  has_many :categories
+  has_and_belongs_to_many :categories
 
   enum role: %i[user admin]
   after_initialize :set_default_role, if: :new_record?
@@ -19,8 +19,9 @@ class User < ApplicationRecord
   end
 
   def categories_list=(categories)
-    self.categories = categories.split(',').map do |category|
-      Category.where(name: category.strip).first_or_create!
+    self.categories = categories.reject { |c| c.empty? }.map do |category|
+      Category.where(title: category.strip).first_or_create
     end
+    # require 'pry'; binding.pry
   end
 end
