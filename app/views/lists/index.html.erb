@@ -1,4 +1,3 @@
-<h1>Lists</h1>
 
 <div class= "list-index-container">
   <% if @lists.count == 0 %>
@@ -9,9 +8,9 @@
 
   <div class= "actions-container">
     <%= link_to new_list_path do %>
-
       <i class="fa-solid fa-circle-plus" style="color: #D0BDF4;"></i>
     <% end %>
     <i id="add"><%= link_to "Add list", new_list_path %></i>
   </div>
+
 </div>

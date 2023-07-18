@@ -3,7 +3,7 @@
   <p><%= @list.event_date %></p>
   <p><%= @list.description %></p>
 </div>
-  <div class= "actions-container">
+<div class= "actions-container-list-show">
   <%= link_to new_gift_path do %>
     <i class="fa-solid fa-circle-plus" style="color: #D0BDF4;"></i>
   <% end %>
@@ -40,7 +40,6 @@
         <% end %>
         <div class="card-container">
           <h5 class="card_title"><%=gift.name%></h5>
-          <p class="card_text"><%= gift.description %></p>
         </div>
       </div>
     <% end %>

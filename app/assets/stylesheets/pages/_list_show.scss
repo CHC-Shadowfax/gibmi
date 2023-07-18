@@ -5,7 +5,7 @@
   margin-top: 40px;
 }
 
-.actions-container {
+.actions-container-list-show {
   display: flex;
   justify-content: center;
 
@@ -15,7 +15,21 @@
   }
 
 }
+.actions-container {
+  margin-left: 35px;
+  position: absolute;
+  bottom: 69%;
+  left: 3%;
 
+
+
+i {
+  margin-left: 10px;
+  margin-top: 2px;
+  color: #D0BDF4;
+
+}
+}
 a {
   text-decoration: none;
   color: black;

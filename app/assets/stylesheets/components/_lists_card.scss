@@ -66,29 +66,25 @@
 
 .list-index-container {
 
+  #add {
 
-  .actions-container {
-    margin-left: 35px;
-    position: absolute;
-    bottom: 69%;
-    left: 3%;
+    margin-left: -20px;
 
-    #add {
-
-      margin-left: -20px;
-
-      a {
-        color: #D0BDF4;
-        font-size: 17px;
-        font-size: 16px;
-      }
+    a {
+      color: #D0BDF4;
+      font-size: 17px;
+      font-size: 16px;
     }
   }
+}
 
-  i {
-    margin-left: 10px;
-    margin-top: 2px;
-    color: #D0BDF4;
+.actions-container {
+  display: flex;
+  justify-content: center;
 
+  a {
+    margin-left: 30px;
+    font-size: 22px;
   }
+
 }
