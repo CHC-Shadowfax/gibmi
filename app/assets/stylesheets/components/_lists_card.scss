@@ -68,16 +68,27 @@
 
 
   .actions-container {
+    margin-left: 35px;
     position: absolute;
     bottom: 69%;
     left: 3%;
 
+    #add {
 
+      margin-left: -20px;
+      margin-top: ;
+
+      a {
+        color: #D0BDF4;
+        font-size: 17px;
+        font-size: 16px;
+      }
+    }
   }
 
   i {
     margin-left: 10px;
-    margin-top: 10px;
+    margin-top: 2px;
     color: #D0BDF4;
 
   }
