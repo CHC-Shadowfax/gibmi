@@ -1,5 +1,11 @@
 <h1>Remember the gift!</h1>
 <div class = "home-action-container">
-  <div id="create"><%= link_to "Create list", new_list_path%></div>
-  <div id="see"><%= link_to "See my lists", lists_path %></div>
+  <div id="create"><%= link_to new_list_path do %>
+   <i class="fa-solid fa-circle-plus" style="color: #D0BDF4;"> New list</i>
+    <% end %>
+  </div>
+  <div id="see"><%= link_to lists_path do%>
+    <i class="fa-solid fa-list-ul"> View lists</i>
+    <% end %>
+  </div>
 </div>

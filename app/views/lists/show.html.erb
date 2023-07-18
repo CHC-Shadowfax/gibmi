@@ -1,9 +1,9 @@
 <div class= "list-container">
-  <h1 class="list-name-container"> <%= @list.name %> </h1>
+  <h1 class="list-name-container"> My <%= @list.name %> list </h1>
   <p><%= @list.event_date %></p>
   <p><%= @list.description %></p>
 </div>
-<div class= "actions-container">
+  <div class= "actions-container">
   <%= link_to new_gift_path do %>
     <i class="fa-solid fa-circle-plus" style="color: #D0BDF4;"></i>
   <% end %>

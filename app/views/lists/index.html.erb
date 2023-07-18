@@ -1,7 +1,16 @@
-<h1>Lists#index</h1>
-<% if @lists.count == 0 %>
-  <h1>CREATE A LIST!!! PAN!!!!</h1>
-<% else %>
-  <%= render 'shared/lists_card', lists: @lists %>
-<% end %>
-<%= link_to "New list", new_list_path %>
+<h1>Lists</h1>
+<div class= "list-index-container">
+  <% if @lists.count == 0 %>
+    <h1>Create a list!</h1>
+  <% else %>
+    <%= render 'shared/lists_card', lists: @lists %>
+  <% end %>
+
+  <div class= "actions-container">
+    <%= link_to new_list_path do %>
+
+      <i class="fa-solid fa-circle-plus" style="color: #D0BDF4;"></i>
+    <% end %>
+    <i>Add list</i>
+  </div>
+</div>
