@@ -14,8 +14,8 @@ class User < ApplicationRecord
 
   has_many :lists, dependent: :destroy
 
-  validates :email, presence: true
-  validates :password, presence: true, length: { minimum: 6 }
+  # validates :email, presence: true
+  # validates :password, presence: true, length: { minimum: 6 }
 
   def set_default_role
     self.role ||= :user
