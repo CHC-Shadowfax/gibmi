@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_15_202904) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_17_042216) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,10 +44,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_15_202904) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "categories_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_categories_users_on_category_id"
+    t.index ["user_id"], name: "index_categories_users_on_user_id"
   end
 
   create_table "features", force: :cascade do |t|
@@ -133,7 +140,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_15_202904) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "categories", "users"
+  add_foreign_key "categories_users", "categories"
+  add_foreign_key "categories_users", "users"
   add_foreign_key "features", "gifts"
   add_foreign_key "gift_links", "gifts"
   add_foreign_key "gifts", "lists"

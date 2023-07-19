@@ -1,0 +1,30 @@
+.modal.active {
+  display: block;
+  background: #0000007d;
+
+  .model-container {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: white;
+    border-radius: 10px;
+  }
+
+  i {
+    color: #780078;
+    position: absolute;
+    cursor: pointer;
+    right: 10px;
+    top: 10px;
+  }
+}
+
+#qrcode {
+  position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}

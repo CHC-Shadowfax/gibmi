@@ -1,14 +1,23 @@
-<div>
-  <%= render 'gift', gift: @gift%>
-    <% if @gift.user_id == current_user.id %>
-      <h4 class="btn btn-lg"><%= link_to "Edit this gift" , edit_gift_path(@gift) %>  </h4>
-    <% end %>
-      <h4 class="btn btn-lg"><%= link_to "Back to list", list_path(@gift.list, code: @gift.list.code) %> </h4>
+<div class="gift-container">
+    <%= render 'gift', gift: @gift%>
 
-    <% if @gift.user_id == current_user.id %>
-      <h4 class="btn btn-lg" > <%= link_to "Delete",
-        gift_path(@gift),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-      %> </h4>
+    <div class="gift-actions-container">
+      <% if @gift.user_id == current_user.id %>
+        <%= link_to edit_gift_path(@gift) do %>
+        <i class="fa-regular fa-pen-to-square" style="color: #D0BDF4;"></i>
+      <% end %>
     <% end %>
+
+
+      <% if @gift.user_id == current_user.id %>
+        <%= link_to(gift_path(@gift),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }) do %>
+          <i class="fa-solid fa-trash" style="color: #D0BDF4;"></i>
+        <% end %>
+      <% end %>
+
+      <%= link_to list_path(@gift.list, code: @gift.list.code) do %>
+      <i class="fa-solid fa-arrow-left-long" style="color: #D0BDF4;"></i>
+      <% end %>
+    </div>
 </div>
