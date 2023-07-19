@@ -17,8 +17,7 @@ class ListsController < ApplicationController
 
   def show
     if user_signed_in?
-      @list = List.find_by(code: params[:query])
-    else
+      @list = List.find(params[:id])
       @list = List.find_by(code: params[:query])
     end
 
