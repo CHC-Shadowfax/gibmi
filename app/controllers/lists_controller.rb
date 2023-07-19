@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+  require 'open-uri'
+
   skip_after_action :verify_authorized, only: [:show]
   skip_before_action :authenticate_user!, only: [:show, :index]
   before_action :set_list, only: [:edit, :update, :destroy]
@@ -15,7 +17,7 @@ class ListsController < ApplicationController
 
   def show
     if user_signed_in?
-      @list = List.find(params[:id])
+      @list = List.find_by(code: params[:query])
     else
       @list = List.find_by(code: params[:query])
     end
@@ -33,16 +35,20 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
+    if @list.photo_id.present?
+      file = URI.open("https://source.unsplash.com/#{@list[:photo_id]}")
+      @list.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+    end
     @list.user = current_user
     authorize @list
 
     if @list.save
-      redirect_to lists_path
+      redirect_to list_path(@list)
     else
       render :new
     end
   end
-  
+
   def edit
     @list = authorize List.find(params[:id])
   end
@@ -60,13 +66,13 @@ class ListsController < ApplicationController
     authorize @list
     @list.destroy
 
-    redirect_to lists_path
+    redirect_to list_path
   end
 
  private
 
   def list_params
-    params.require(:list).permit(:name, :description, :event_date, :address)
+    params.require(:list).permit(:name, :description, :event_date, :address, :photo, :photo_id)
   end
 
   def set_list

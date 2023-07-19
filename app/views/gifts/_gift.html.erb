@@ -1,4 +1,8 @@
-<div class= "border bag-show">
-  <h5 class="card-title"><%= gift.name %></h5>
-   <center> <%= cl_image_tag gift.photo.key %> </center>
-   <p class="card-text"><strong>Description</strong>:<%= gift.description %></p>
+
+<div class="gift-img"> <%= cl_image_tag gift.photo.key %> </div>
+
+<div class="gift-info-container">
+  <div id="gift-title"><%= gift.name %></div>
+  <p id="gift-description"><%= gift.description %></p>
+  <p id="gift-url">Find it at: <%= gift.address %></p>
+</div>
