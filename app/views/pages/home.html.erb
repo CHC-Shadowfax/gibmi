@@ -1,14 +1,59 @@
-
-<div class = "home-action-container">
-  <div id="create"><%= link_to new_list_path do %>
-   <i class="fa-solid fa-circle-plus" style="color: #D0BDF4;"> New list</i>
-    <% end %>
+<!--primer container home banner -->
+<section>
+  <div class="banner">
   </div>
-  <div id="see"><%= link_to lists_path do%>
-    <i class="fa-solid fa-list-ul"> View lists</i>
-    <% end %>
+</section>
+<!--segundo container buttons -->
+<section>
+  <div class="container">
+    <div class = "home-action-container d-flex justify-content-between">
+      <div id="create"><%= link_to new_list_path do %>
+          <i class="fa-solid fa-circle-plus" style="color: #D0BDF4;"> New list</i>
+        <% end %>
+      </div>
+      <div id="see"><%= link_to lists_path do%>
+          <i class="fa-solid fa-list-ul"> View lists</i>
+        <% end %>
+      </div>
+    </div>
   </div>
+</section>
+<!--tercer container AI cards -->
+<div>
 </div>
-
-
-<div class="banner"></div>
+<!--cuarto container AI example -->
+<section class="container4">
+  <div class="container-fluid">
+    <div class="row text-align-center text-center">
+      <div class="col-5">
+        <h1>AI Example</h1>
+        <i class="fa-solid fa-user"></i>
+        <h3>Jane Doe Categories:</h3>
+        <ul>
+          <li>Sports</li>
+          <li>Books</li>
+          <li>Video Games</li>
+        </ul>
+      </div>
+      <div class="col-2">
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+      <div class="col-5">
+        <h1>Gift Suggestion</h1>
+        <i class="fa-solid fa-globe"></i>
+      </div>
+    </div>
+  </div>
+</section>
+<!--quinto container How it works -->
+<div>
+</div>
+<!--sexto container sign up invitation -->
+<div>
+</div>
+<!--septimo container footer -->
+<section class="container5">
+  <div class="container-fluid">
+    <%= render "shared/footer" %>
+  </div>
+</section>
