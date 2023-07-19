@@ -1,6 +1,7 @@
   <%= simple_form_for @gift do |f| %>
   <%= f.input :name, placeholder: ' Name your gift!' %>
   <%= f.input :description, placeholder: 'Add description' %>
+  <%= f.input :size, placeholder: 'Specifications: Size, Color, etc...' %>
   <%= f.input :list_id, as: :select, collection: List.all %>
   <%= f.input :photo, as: :file, placeholder: 'Add photo' %>
   <%= f.input :address, input_html: { id: 'pac-input' }%>

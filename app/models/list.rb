@@ -20,6 +20,9 @@ class List < ApplicationRecord
 
   after_create :generate_code
 
+  validates :name, presence: true
+  validates :photo_id, presence: true
+
   include PgSearch::Model
 
   pg_search_scope :search_by_code_or_user_email,
