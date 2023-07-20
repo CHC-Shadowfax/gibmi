@@ -108,7 +108,7 @@ h1  {
     margin-bottom: 50px;
 
   h1 {
-    color: $purple;
+    color: $white;
     font-weight: bold;
   }
 
@@ -173,7 +173,7 @@ h1  {
   h2 {
     color: $purple;
     font-size: 30px;
-    font-weight: normal;
+    font-weight: bold;
     text-align: center;
   }
 
@@ -181,13 +181,29 @@ h1  {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-decoration: underline;
+    flex-direction: row;
+    margin-left: 80px;
+    margin-top: 50px;
+  }
+
+  .list-group-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    float: left;
   }
 
   li{
     color: $purple;
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: normal;
+    text-decoration: underline;
+  }
+
+  .bg-image {
+    border: 1px;
+    height: 80vh;
   }
  }
 
