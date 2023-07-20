@@ -8,6 +8,7 @@
 
 User.create email: "latamtrip@gibmi.com.mx", password: "miviajelatam23$", role: 1
 User.create email: "lisette@gibmi.com.mx", password: "Password123", role: 1
+User.create email: "visitor@gibmi.com.mx", password: "Password12", role: 0
 
 
 #blog post seeds
@@ -20,17 +21,49 @@ BLOG = [
   'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNvbXB1dGVyfGVufDB8fDB8fHwy&auto=format&fit=crop&w=800&q=60',
 ]
 
-6.times do
-file = URI.open(BLOG.sample)
-post = Post.new(
-title: Faker::Lorem.sentence(word_count: 3),
-content: Faker::Lorem.paragraph(sentence_count: 3),
-user_id: User.first.id,
-#start_date: frh[:b_begin]
-created_at: Faker::Date.between(from: '2022-01-01', to: '2023-7-18'),
-)
-post.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-post.save
-end
+# 6.times do
+# file = URI.open(BLOG.sample)
+# post = Post.new(
+# title: Faker::Lorem.sentence(word_count: 3),
+# content: Faker::Lorem.paragraph(sentence_count: 3),
+# user_id: User.first.id,
+# #start_date: frh[:b_begin]
+# created_at: Faker::Date.between(from: '2022-01-01', to: '2023-7-18'),
+# )
+# post.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+# post.save
+# end
 
-puts "Blog posts created!"
+1.times do
+  feature = Post.create(
+    title: "Happy Mother's Day",
+    content: "Can you believe it is May!? Around the corner you see all of the flowers come up. I love you mom baloons. That's it! Mother's Day is around the corner.",
+    user_id: User.first.id,
+    created_at: "05-01-2021"
+)
+
+puts "Post - #{feature.title} has been created!"
+
+  # puts "Feature Color - #{feature.value} for #{bag.name} has been created!"
+
+  # feature = Feature.create(
+  #   name: "Make",
+  #   value: Faker::Commerce.brand,
+  #   bag_id: bag.id
+  # )
+  # puts "Feature Make - #{feature.value} for #{bag.name} has been created!"
+
+  # feature = Feature.create(
+  #   name: "Material",
+  #   value: Faker::Commerce.material,
+  #   bag_id: bag.id
+  # )
+  # puts "Feature Material - #{feature.value} for #{bag.name} has been created!"
+
+  # feature = Feature.create(
+  #   name: "Size",
+  #   value: SIZE.sample,
+  #   bag_id: bag.id
+  # )
+  # puts "Feature Size - #{feature.value} for #{bag.name} has been created!"
+end
