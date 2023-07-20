@@ -1,0 +1,17 @@
+<h1>Recommendations#index</h1>
+
+<% @recommendations.each do |r| %>
+  <div class="recommendation">
+    <div class="recommendation-title">
+      <%= r.name %>
+    </div>
+     <div class="recommendation-img">
+      <%= image_tag r.image %>
+    </div>
+    <div class="recommendation-link">
+      <%= link_to "View", recommendation_path(r) %>
+    </div>
+  </div>
+<% end %>
+<%= link_to "Generate recommendations", generate_recommendations_path %>
+<%= paginate @recommendations %>
