@@ -181,5 +181,42 @@ h1  {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: underline;
   }
+
+  li{
+    color: $purple;
+    font-size: 15px;
+    font-weight: bold;
+  }
+ }
+
+ .container7 {
+
+    margin-bottom: 50px;
+    background-color: $white;
+    padding: 50px;
+
+    h2 {
+      color: $white;
+      font-size: 30px;
+      font-weight: normal;
+      text-align: center;
+    }
+
+    .btn {
+      background-color: $purple;
+      color: $white;
+      border: none;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background-color: $lila-light;
+      color: $white;
+      border: none;
+      font-size: 15px;
+      font-weight: bold;
+    }
  }

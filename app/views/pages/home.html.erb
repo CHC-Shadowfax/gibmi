@@ -114,9 +114,25 @@
     </div>
   </div>
 </section>
-<!--septimo container footer -->
+<!--septimo container Special Date-->
 <section class="container7">
   <div class="container-fluid">
-    <%= render "shared/footer" %>
-  </div>
-</section>
+    <div class="row text-center">
+      <div class="col-6">
+        <h3>Ready to create you first list?</h3>
+        <i class="fa-solid fa-arrow-right"></i>
+        <%= link_to "Sign Up!", new_list_path, class:"btn btn-light btn-lg" %>
+      </div>
+      <div class="col-6">
+        <h3>Don't forget to visit our blog!</h3>
+        <i class="fa-solid fa-arrow-right"></i>
+        <%= link_to "Go now!", posts_path, class:"btn btn-light btn-lg" %>
+      </div>
+    </div>
+  </section>
+  <!--octavo container footer -->
+  <section class="container8">
+    <div class="container-fluid">
+      <%= render "shared/footer" %>
+    </div>
+  </section>
