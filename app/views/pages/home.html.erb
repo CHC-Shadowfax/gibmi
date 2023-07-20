@@ -5,15 +5,17 @@
 </section>
 <!--segundo container buttons -->
 <section>
-  <div class="container">
-    <div class = "home-action-container d-flex justify-content-between">
-      <div id="create"><%= link_to new_list_path do %>
-          <i class="fa-solid fa-circle-plus" style="color: #D0BDF4;"> New list</i>
-        <% end %>
-      </div>
-      <div id="see"><%= link_to lists_path do%>
-          <i class="fa-solid fa-list-ul"> View lists</i>
-        <% end %>
+  <div class="container2">
+    <div class="row">
+      <div class = "home-action-container d-flex justify-content-between">
+        <div id="create"><%= link_to new_list_path do %>
+            <i class="fa-solid fa-circle-plus" style="color: #D0BDF4;"> New list</i>
+          <% end %>
+        </div>
+        <div id="see"><%= link_to lists_path do%>
+            <i class="fa-solid fa-list-ul"> View lists</i>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -23,22 +25,22 @@
 </div>
 <!--cuarto container AI example -->
 <section class="container4">
-  <div class="container-fluid">
+  <div class="container">
     <div class="row text-align-center text-center">
-      <div class="col-5">
+      <div class="col-5 cardai">
         <h1>AI Example</h1>
         <i class="fa-solid fa-user"></i>
-        <h3>Jane Doe Categories:</h3>
+        <h3 class="p-2">User Categories:</h3>
         <ul>
           <li>Sports</li>
           <li>Books</li>
           <li>Video Games</li>
         </ul>
       </div>
-      <div class="col-2">
+      <div class="col-2 icon2">
         <i class="fa-solid fa-arrow-right"></i>
       </div>
-      <div class="col-5">
+      <div class="col-5 cardai">
         <h1>Gift Suggestion</h1>
         <i class="fa-solid fa-globe"></i>
       </div>
@@ -46,13 +48,74 @@
   </div>
 </section>
 <!--quinto container How it works -->
-<div>
-</div>
-<!--sexto container sign up invitation -->
-<div>
-</div>
-<!--septimo container footer -->
 <section class="container5">
+  <div class= "container">
+    <div class="row text-center">
+      <h1 class= "text center p-4">How it works</h1>
+      <div class="col-4 card5 shadow p-2 mb-5 bg-body border border-dark border-3">
+        <h2 class="p-2">Create a list</h2>
+        <p class= "p-1"><i class="fa-solid fa-list-check"></i></p>
+        <ul>
+          <li>Select the Occasion</li>
+          <li>Add Gifts</li>
+          <li>Share your list with friends and family</li>
+        </ul>
+      </div>
+      <div class="col-4 card5 shadow p-2 mb-5 bg-body border border-dark border-3">
+        <h2 class="p-2">Gifts</h2>
+        <p class="p-1"><i class="fa-solid fa-gifts"></i></p>
+        <ul>
+          <li>Add a gift by pasting the URL</li>
+          <li>Take a photo and share the location where people can buy your gift</li>
+          <li>Choose one of the suggestions given by AI</li>
+        </ul>
+      </div>
+      <div class="col-4 card5 shadow p-2 mb-5 bg-body border border-dark border-3">
+        <h2 class="p-2">AI Gift Suggestion</h2>
+        <p class="p-1"><i class="fa-solid fa-globe"></i></p>
+        <ul>
+          <li>AI will suggest gifts based on the user's interests</li>
+          <li>AI will suggest gifts based on the user's location</li>
+          <li>AI will suggest gifts based on the user's budget</li>
+        </ul>
+      </div>
+      <h3 class="mb-3"><%= link_to "Start now!", new_list_path, class:"btn btn-light btn-lg" %></h3>
+    </div>
+  </div>
+</section>
+<!--sexto container Special Date-->
+<section class="container6">
+  <div class="container-fluid">
+    <div class="row">
+      <h1>Special Date</h1>
+      <div class="col-12">
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-12">
+        <h2>Choose your Ocassion</h2>
+        <ul class="list-group list-group-horizontal">
+          <li class="list-group-item flex-fill">Birthday</li>
+          <li class="list-group-item flex-fill">Wedding</li>
+          <li class="list-group-item flex-fill">Anniversary</li>
+          <li class="list-group-item flex-fill">Mothers Day</li>
+        </ul>
+        <ul class="list-group list-group-horizontal">
+          <li class="list-group-item flex-fill">Fathers Day</li>
+          <li class="list-group-item flex-fill">Graduation</li>
+          <li class="list-group-item flex-fill">Baby Shower</li>
+          <li class="list-group-item flex-fill">Christmas</li>
+        </ul>
+        <ul class="list-group list-group-horizontal">
+          <li class="list-group-item flex-fill">Valentines Day</li>
+          <li class="list-group-item flex-fill">Other</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!--septimo container footer -->
+<section class="container7">
   <div class="container-fluid">
     <%= render "shared/footer" %>
   </div>
