@@ -15,10 +15,13 @@ class List < ApplicationRecord
   belongs_to :user
 
   has_many :gifts, dependent: :destroy
-
+  has_many :user_gift_recomendations, dependent: :destroy
   has_one_attached :photo
 
   after_create :generate_code
+
+  validates :name, presence: true
+  validates :photo_id, presence: true
 
   include PgSearch::Model
 
