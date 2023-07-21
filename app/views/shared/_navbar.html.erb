@@ -12,18 +12,33 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-          <form>
-            <div >
-              <%= form_with url: lists_path, method: :get, class: "" do %>
+
+        <div id="cover" >
+
+          <%= form_with url: lists_path, method: :get do %>
+            <div class="tb">
+              <div class="td">
                 <%= text_field_tag :query,
                       params[:query],
-                      class: "form-inline my-2 my-lg-0",
-                      placeholder: "Give a list!"
+                      class: "td",
+                      placeholder: "Give me a list!"
                   %>
-                <%= submit_tag "Search", name: "", class: "btn btn-primary my-2 my-sm-0" %>
-              <% end %>
-            </div>
-          </form>
+              </div>
+              <%#= submit_tag "RESULTS", name: "", class: "btn btn-primary my-2 my-sm-0" do %>
+              <div class="td" id="s-cover">
+                <button type="submit">
+                    <div id="s-circle"></div>
+                    <span></span>
+                </button>
+              </div>
+
+              <%# <%= button_tag type: 'submit' do %>
+                <%# <i class="fa fa-search"></i> %>
+              <%# <% end %> 
+            <% end %>
+          </div>
+        </div>
+
 
 
       <ul class="navbar-nav me-auto">
@@ -63,5 +78,7 @@
       </ul>
     </div>
   </div>
+
+
 
 </div>
