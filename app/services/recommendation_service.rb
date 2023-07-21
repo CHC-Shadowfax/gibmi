@@ -55,7 +55,7 @@ class RecommendationService
   end
 
   def create_user_gift_recommendations(name, url, image, description, purchase_places)
-    user_gift_recommendation = UserGiftRecomendation.create(
+    user_gift_recommendation = UserGiftRecomendation.create!(
       name: name,
       url: url,
       image: image,
