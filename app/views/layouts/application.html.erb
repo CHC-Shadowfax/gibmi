@@ -11,14 +11,12 @@
     <%= favicon_link_tag "favbr.png", rel: "icon", type: "image/png" %>
 
     <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKKmKU31CVKKl88v1lw_BqkIXhRKC-3Ro&libraries=places">
-    </script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKKmKU31CVKKl88v1lw_BqkIXhRKC-3Ro&libraries=places"></script>
   </head>
-
   <body>
-  <%= render "shared/navbar" %>
-  <%= render "shared/flashes" %>
-
+    <%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
     <%= yield %>
+    <%= render "shared/footer" %>
   </body>
 </html>

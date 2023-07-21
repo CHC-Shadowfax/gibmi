@@ -1,17 +1,136 @@
-
-<div class = "home-action-container">
-  <div id="create"><%= link_to new_list_path do %>
-   <i class="fa-solid fa-circle-plus" style="color: #D0BDF4;"> New list</i>
-    <% end %>
+<!--primer container home banner -->
+<section>
+  <div class="banner">
   </div>
-  <div id="see"><%= link_to lists_path do%>
-    <i class="fa-solid fa-list-ul"> View lists</i>
-    <% end %>
+</section>
+<!--segundo container buttons -->
+<section>
+  <div class="container2">
+    <div class="row">
+      <div class = "home-action-container d-flex justify-content-between">
+        <div id="create"><%= link_to new_list_path do %>
+            <i class="fa-solid fa-circle-plus" style="color: #D0BDF4;"> New list</i>
+          <% end %>
+        </div>
+        <div id="see"><%= link_to lists_path do%>
+            <i class="fa-solid fa-list-ul"> View lists</i>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div><%= link_to 'Go to recommendations', recommendations_path %></div>
+</section>
+<!--tercer container AI cards -->
+<div>
 </div>
-
-
-
-<div class="banner"></div>
+<!--cuarto container AI example -->
+<section class="container4">
+  <div class="container">
+    <div class="row text-align-center text-center">
+      <div class="col-5 cardai">
+        <h1>AI Example</h1>
+        <i class="fa-solid fa-user"></i>
+        <h3 class="p-2">User Categories:</h3>
+        <ul>
+          <li>Sports</li>
+          <li>Books</li>
+          <li>Video Games</li>
+        </ul>
+      </div>
+      <div class="col-2 icon2">
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+      <div class="col-5 cardai">
+        <h1>AI Gift Suggestion</h1>
+        <i class="fa-solid fa-globe"></i>
+      </div>
+    </div>
+  </div>
+</section>
+<!--quinto container How it works -->
+<section class="container5" style="background-image: url('https://images.unsplash.com/photo-1541450805268-4822a3a774ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80'); height 200px;">
+  <div class= "container p-3">
+    <div class="row text-center">
+      <h1 class= "text center p-4">How it works</h1>
+      <div class="col-4 card5 shadow p-2 mb-5 bg-body border border-dark border-3">
+        <h2 class="p-2">Create a list</h2>
+        <p class= "p-1"><i class="fa-solid fa-list-check"></i></p>
+        <ul>
+          <li>Select the Occasion</li>
+          <li>Add Gifts</li>
+          <li>Share your list with friends and family</li>
+        </ul>
+      </div>
+      <div class="col-4 card5 shadow p-2 mb-5 bg-body border border-dark border-3">
+        <h2 class="p-2">Gifts</h2>
+        <p class="p-1"><i class="fa-solid fa-gifts"></i></p>
+        <ul>
+          <li>Add a gift by pasting the URL</li>
+          <li>Take a photo and share the location where people can buy your gift</li>
+          <li>Choose one of the suggestions given by AI</li>
+        </ul>
+      </div>
+      <div class="col-4 card5 shadow p-2 mb-5 bg-body border border-dark border-3">
+        <h2 class="p-2">AI Gift Suggestion</h2>
+        <p class="p-1"><i class="fa-solid fa-globe"></i></p>
+        <ul>
+          <li>AI will suggest gifts based on the user's interests</li>
+          <li>AI will suggest gifts based on the user's location</li>
+          <li>AI will suggest gifts based on the user's budget</li>
+        </ul>
+      </div>
+      <h3 class="mb-3"><%= link_to "Start now!", new_list_path, class:"btn btn-light btn-lg" %></h3>
+    </div>
+  </div>
+</section>
+<!--sexto container Special Date-->
+<section class="container6">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6">
+        <%= render "shared/carousel" %>
+      </div>
+      <div class="col-6">
+        <h2>Make a list for a Specific Ocassion</h2>
+        <div class="row list-group">
+          <ul>
+            <li class="list-group-item .flex-fill">Christmas</li>
+            <li class="list-group-item .flex-fill">Valentine's Day</li>
+            <li class="list-group-item .flex-fill">Birthdays</li>
+          </ul>
+        </div>
+        <div class="row list-group">
+          <ul>
+            <li class="list-group-item .flex-fill">Anniversaries</li>
+            <li class="list-group-item .flex-fill">Weedings</li>
+            <li class="list-group-item .flex-fill">Baby Shower</li>
+          </ul>
+        </div>
+        <div class="row list-group">
+          <ul>
+            <li class="list-group-item .flex-fill">Graduations</li>
+            <li class="list-group-item .flex-fill">Mothers Day</li>
+            <li class="list-group-item .flex-fill">Fathers day</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--septimo container Special Date-->
+<section class="container7">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-6">
+        <h3>Ready to create your first list?</h3>
+        <i class="fa-solid fa-arrow-right"></i>
+        <%= link_to "Sign Up!", new_list_path, class:"btn btn-light btn-lg" %>
+      </div>
+      <div class="col-6">
+        <h3>Don't forget to visit our blog!</h3>
+        <i class="fa-solid fa-arrow-right"></i>
+        <%= link_to "Go now!", posts_path, class:"btn btn-light btn-lg" %>
+      </div>
+    </div>
+  </div>
+</section>
