@@ -17,7 +17,7 @@ h2 {
 }
 
 .post {
-  width: 15rem;
+  width: 20rem;
   height: 38rem;
   border-radius: 8px;
   border: 1px solid #E5EAF5;
@@ -28,7 +28,7 @@ h2 {
 
   img {
     width: 100%;
-    height: fit-content;
+    height: 18rem;
     border-radius: 8px 8px 0 0;
   }
 
@@ -142,9 +142,9 @@ h2 {
 .container-posts-all {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
+  justify-content: left;
+  align-items: left;
+  margin: 10px;
   width: 100%;
   max-width: 1200px;
 }
@@ -160,6 +160,11 @@ h2 {
 .recommended-img {
 height: 50px;
 border-radius: 15px;
+}
 
-
+.list-group {
+  margin: 1px;
+  width: 100%;
+  max-width: 1500px;
+  text-align: inherit;
 }
