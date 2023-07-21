@@ -1,15 +1,3 @@
-  <div class="recommendation-title">
-      <%= @recommendation.name %>
-  </div>
-  <div class="recommendation-description">
-      <%= @recommendation.description %>
-  </div>
-  <div class="recommendation-description">
-      <% @recommendation.purchase_places.split(", ").each do |rec| %>
-      <%= link_to rec, 'https://'+rec, target:"_blank" %>
-      <% end %>
-  </div>
-
-  <div class="recommendation-description">
-      <%= image_tag @recommendation.image %>
+  <div class="gift-container">
+      <%= render 'recommendation', recommendation: @recommendation%>
   </div>

@@ -1,0 +1,11 @@
+<div class="gift-img"> <%= image_tag recommendation.image %> </div>
+
+  <div class="gift-info-container">
+    <div id="gift-title"><%= recommendation.name %></div>
+    <p id="gift-description"><%= recommendation.description %></p>
+    <div class="recommendation-description">
+        <% @recommendation.purchase_places.split(", ").each do |rec| %>
+        <%= link_to ensure_https(rec), ensure_https(rec), target:"_blank" %>
+        <% end %>
+    </div>
+

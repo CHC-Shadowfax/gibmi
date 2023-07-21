@@ -1,17 +1,14 @@
-<h1>Recommendations#index</h1>
+<h1>Find some gift ideas!</h1>
 
-<% @recommendations.each do |r| %>
-  <div class="recommendation">
-    <div class="recommendation-title">
-      <%= r.name %>
-    </div>
-     <div class="recommendation-img">
-      <%= image_tag r.image %>
-    </div>
-    <div class="recommendation-link">
-      <%= link_to "View", recommendation_path(r) %>
-    </div>
-  </div>
-<% end %>
-<%= link_to "Generate recommendations", generate_recommendations_path %>
-<%= paginate @recommendations %>
+<div class="gifts-container">
+  <% @recommendations.each do |r| %>
+    <%= link_to recommendation_path(r) do %>
+      <div class="gift">
+          <%= image_tag r.image %>
+        <% end %>
+        <div class="card-container">
+          <h5 class="card_title"><%= r.name %></h5>
+        </div>
+      </div>
+  <% end %>
+</div>
