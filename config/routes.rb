@@ -20,8 +20,4 @@ Rails.application.routes.draw do
       get :generate
     end
   end
-
-  resources :posts do
-    get 'page/:page', action: :index, on: :collection
-  end
 end
