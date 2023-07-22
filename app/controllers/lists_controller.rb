@@ -18,8 +18,8 @@ class ListsController < ApplicationController
   def show
     if user_signed_in?
       @list = List.find(params[:id])
-      @list = List.find_by(code: params[:query])
     end
+    @list = List.find_by(code: params[:query])
 
     if @list.nil?
       redirect_to lists_path
@@ -65,7 +65,7 @@ class ListsController < ApplicationController
     authorize @list
     @list.destroy
 
-    redirect_to list_path
+    redirect_to lists_path
   end
 
  private
