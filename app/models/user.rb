@@ -13,9 +13,17 @@ class User < ApplicationRecord
   after_initialize :set_default_role, if: :new_record?
 
   has_many :lists, dependent: :destroy
+  has_many :user_gift_recomendations, dependent: :destroy
 
-  validates :email, presence: true
-  validates :password, presence: true, length: { minimum: 6 }
+  after_create :generate_recommendations
+
+
+  def generate_recommendations
+    RecommendationsWorker.perform_async(self.id)
+  end
+
+  # validates :email, presence: true
+  # validates :password, presence: true, length: { minimum: 6 }
 
   def set_default_role
     self.role ||= :user

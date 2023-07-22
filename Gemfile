@@ -78,9 +78,10 @@ group :test do
   gem "webdrivers"
 end
 
-gem "will_paginate"
+gem "kaminari"
 gem "cloudinary"
 
 gem "pg_search"
 gem "ruby-openai"
 gem "httparty"
+gem "sidekiq"
