@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :user_gift_recomendations, dependent: :destroy
 
   after_create :generate_recommendations
+  after_create :add_user_to_gifts
 
 
   def generate_recommendations
@@ -34,5 +35,15 @@ class User < ApplicationRecord
       Category.where(title: category.strip).first_or_create
     end
     # require 'pry'; binding.pry
+  end
+
+  def add_user_to_gifts
+    gifts = Gift.where(assignee_email: self.email)
+    if gifts.any?
+      gifts.each do |gift|
+        gift.user = self
+        gift.save
+      end
+    end
   end
 end

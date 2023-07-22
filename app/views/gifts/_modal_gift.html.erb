@@ -1,0 +1,22 @@
+<div class="modal-dialog">
+  <% if current_user %>
+    <%# patch 'gifts/:id/assignee', to: "gifts#add_assignee", as: :add_assignee %>
+    <%= simple_form_for @gift, url: add_assignee_path(@gift), method: :patch do |f| %>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure you want to give this gift?</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <%= f.submit "I WANT TO GIVE THIS GIFT!", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <%# patch 'gifts/:id/assignee_email', to: "gifts#add_assignee_email", as: :add_assignee_email %>
+  <% end %>
+</div>

@@ -1,8 +1,14 @@
-
 <div class="gift-img"> <%= cl_image_tag gift.photo.key %> </div>
-
 <div class="gift-info-container">
   <div id="gift-title"><%= gift.name %></div>
   <p id="gift-description"><%= gift.description %></p>
   <p id="gift-url">Find it at: <%= gift.address %></p>
+</div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  I WANT TO GIVE THIS GIFT!
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <%= render 'modal_gift', gift: @gift %>
 </div>
