@@ -71,4 +71,6 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  # config.hosts << "3035-2603-8081-d000-1b-2137-d221-507d-447c.ngrok-free.app"
 end

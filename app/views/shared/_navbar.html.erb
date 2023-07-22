@@ -11,6 +11,36 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+        <div id="cover" >
+
+          <%= form_with url: lists_path, method: :get do %>
+            <div class="tb">
+              <div class="td">
+                <%= text_field_tag :query,
+                      params[:query],
+                      class: "td",
+                      placeholder: "Give me a list!"
+                  %>
+              </div>
+              <%#= submit_tag "RESULTS", name: "", class: "btn btn-primary my-2 my-sm-0" do %>
+              <div class="td" id="s-cover">
+                <button type="submit">
+                    <div id="s-circle"></div>
+                    <span></span>
+                </button>
+              </div>
+
+              <%# <%= button_tag type: 'submit' do %>
+                <%# <i class="fa fa-search"></i> %>
+              <%# <% end %> 
+            <% end %>
+          </div>
+        </div>
+
+
+
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
             <%= link_to "Blog", posts_path, class: "nav-link" %>
@@ -22,6 +52,10 @@
           <li class="nav-item">
             <%= link_to "My lists", lists_path, class: "nav-link" %>
           </li>
+
+
+
+
 
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,16 +79,6 @@
     </div>
   </div>
 
-</div>
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: lists_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Find a GIBMI list! #CODE or @user_name"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-    <% end %>
-  </div>
+
+
 </div>
