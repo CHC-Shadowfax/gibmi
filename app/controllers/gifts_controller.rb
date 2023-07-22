@@ -1,6 +1,6 @@
 class GiftsController < ApplicationController
   before_action :set_gift, only: %i[show edit update destroy]
-  skip_before_action :authenticate_user!, only: [:show]
+  skip_before_action :authenticate_user!, only: [:show, :add_assignee_email, :add_assignee]
 
   def index
     @gifts = policy_scope Gift.all
@@ -16,7 +16,6 @@ class GiftsController < ApplicationController
 
   def create
     @gift = authorize Gift.new(gift_params)
-    @gift.user = current_user
     if @gift.save
        redirect_to gift_path(@gift)
     else
@@ -39,18 +38,19 @@ class GiftsController < ApplicationController
 
   def destroy
     authorize @gift.destroy
-    redirect_to list_path(@gift.list, code: @gift.list.code), notice: 'Gift was successfully destroyed.', status: :see_other
+    redirect_to list_path(@gift.list, query: @gift.list.code), notice: 'Gift was successfully destroyed.', status: :see_other
   end
 
   def add_assignee_email
     @gift = Gift.find(params[:id])
-    @gift.assignee_email = params[:assignee_email]
-    @gift.save
-    redirect_to lists_path, notice: 'Gift was successfully assigned, please create an account for more features', status: :see_other
+    authorize @gift
+    @gift.update!(gift_params)
+    redirect_to lists_path(query: @gift.list.code), notice: 'Gift was successfully assigned, please create an account for more features', status: :see_other
   end
 
   def add_assignee
     @gift = Gift.find(params[:id])
+    authorize @gift
     @gift.user = current_user
     @gift.save
     redirect_to lists_path, notice: 'Gift was successfully assigned', status: :see_other
@@ -78,7 +78,7 @@ class GiftsController < ApplicationController
   end
 
   def gift_params
-    params.require(:gift).permit(:name, :description, :photo, :list_id, :address, :size)
+    params.require(:gift).permit(:name, :description, :photo, :list_id, :address, :size, :assignee_email)
   end
 end
 

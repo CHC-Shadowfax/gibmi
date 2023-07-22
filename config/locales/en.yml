@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  pundit:
+    default: 'You cannot perform this action.'
+    gift_policy:
+      add_assignee_email?: 'Gift already has an assignee!'
+      add_assignee?: 'Gift already has an assignee!'
