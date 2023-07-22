@@ -1,16 +1,24 @@
 .navbar-lewagon {
-  justify-content: space-between;
+  justify-content: space-around;
   background: white;
   border-bottom: 1px solid lightgray;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+
+}
+
+@media (min-width: 768px) {
+  .navbar-desktop-left {
+    justify-content: end;
+  }
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
 
 .gibmi-logo {
   background-image: image-url("logo.png") ;
@@ -87,17 +95,18 @@ button {
 }
 
 #cover {
-  position: absolute;
-  top: 93%;
-  left: 0;
-  right: 0;
-  width: 550px;
-  padding: 35px;
-  margin: -83px auto 0 auto;
-  background-color: #A28089;
+  // position: absolute;
+  // top: 93%;
+  // left: 0;
+  // right: 0;
+  width: 50%;
+  // padding: 35px;
+  padding-left: 20px;
+  // margin: -83px auto 0 auto;
+  background-color: #DCCEEA;
   border-radius: 20px;
   // box-shadow: 0 10px 40px #A28089, 0 0 0 20px #ffffffeb;
-  transform: scale(0.6);
+  // transform: scale(0.6);
 }
 
 form {
@@ -201,3 +210,7 @@ button span:after {
   width: 40px;
   background-color: #fff;
 }
+
+
+// media query esconda una
+// media query presente la otra
