@@ -19,6 +19,13 @@
   width: 40px;
 }
 
+// la barra con el span entra en conflicto
+
+// .navbar-toggler-icon{
+//   top: 0px;
+//   left: 28px;
+//   transform: scale(1.0);
+// }
 
 .gibmi-logo {
   background-image: image-url("logo.png") ;
@@ -129,7 +136,7 @@ input[type="text"]::placeholder {
   padding-left: 35px;
 }
 
-button {
+#search-btn {
   position: relative;
   display: block;
   width: 84px;
@@ -151,7 +158,7 @@ button {
   transition: 0.5s ease all;
 }
 
-button span {
+#search-btn span {
   position: absolute;
   top: 30px;
   left: 40px;
@@ -164,8 +171,8 @@ button span {
   transition: 0.5s ease all;
 }
 
-button span:before,
-button span:after {
+#search-btn span:before,
+#search-btn span:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -195,17 +202,17 @@ button span:after {
   transform: rotateZ(0);
 }
 
-#s-cover:hover button span:before {
+#s-cover:hover #search-btn span:before {
   bottom: 11px;
   transform: rotateZ(52deg);
 }
 
-#s-cover:hover button span:after {
+#s-cover:hover #search-btn span:after {
   bottom: -11px;
   transform: rotateZ(-52deg);
 }
-#s-cover:hover button span:before,
-#s-cover:hover button span:after {
+#s-cover:hover #search-btn span:before,
+#s-cover:hover #search-btn span:after {
   right: -6px;
   width: 40px;
   background-color: #fff;
