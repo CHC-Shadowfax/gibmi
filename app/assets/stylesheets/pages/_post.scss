@@ -22,8 +22,8 @@ h2 {
   border-radius: 8px;
   border: 1px solid #E5EAF5;
   margin: 10px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
   position: relative;
+  box-shadow: 7px 7px 15px $lila-light;
 
 
   img {
@@ -147,15 +147,33 @@ h2 {
   margin: 10px;
   width: 100%;
   max-width: 1200px;
+
 }
+
+.row {
+  --bs-gutter-x: 0;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-.5 * var(--bs-gutter-x));
+  margin-left: calc(-.5 * var(--bs-gutter-x));
+  }
+
 
 .signimg {
   width: 100%;
   height: 100%;
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
   border-radius: 8px 8px 8px 8px;
+  box-shadow: 2px 2px 5px #DCCEEA;
 
 }
+
+.title-recom {
+text-align: center;
+}
+
 
 .recommended-img {
 height: 50px;
@@ -167,4 +185,16 @@ border-radius: 15px;
   width: 100%;
   max-width: 1500px;
   text-align: inherit;
+  box-shadow: 3px 3px 15px $lila-light;
 }
+ .btn-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    margin-right: 5px;
+    width: 100%;
+    text-align: inherit;
+    display: inline-block;
+    margin: 0 20px;
+ }
