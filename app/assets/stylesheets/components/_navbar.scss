@@ -78,7 +78,7 @@ button {
 
 #cover {
   position: absolute;
-  top: 50%;
+  top: 93%;
   left: 0;
   right: 0;
   width: 550px;
@@ -86,7 +86,7 @@ button {
   margin: -83px auto 0 auto;
   background-color: #A28089;
   border-radius: 20px;
-  box-shadow: 0 10px 40px #A28089, 0 0 0 20px #ffffffeb;
+  // box-shadow: 0 10px 40px #A28089, 0 0 0 20px #ffffffeb;
   transform: scale(0.6);
 }
 
@@ -114,16 +114,16 @@ button {
   position: relative;
   display: block;
   width: 84px;
-  height: 96px;
+  height: 30px;
   cursor: pointer;
 }
 
 #s-circle {
   position: relative;
-  top: -8px;
-  left: 0;
-  width: 43px;
-  height: 43px;
+  top: -24px;
+  left: 10;
+  width: 55px;
+  height: 55px;
   margin-top: 0;
   border-width: 15px;
   border: 15px solid #fff;
@@ -134,10 +134,10 @@ button {
 
 button span {
   position: absolute;
-  top: 68px;
-  left: 43px;
+  top: 30px;
+  left: 40px;
   display: block;
-  width: 45px;
+  width: 30px;
   height: 15px;
   background-color: transparent;
   border-radius: 10px;
