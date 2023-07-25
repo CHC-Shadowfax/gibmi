@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :lists
   resources :gifts, except: [:index]
+  patch 'gifts/:id/assignee_email', to: "gifts#add_assignee_email", as: :add_assignee_email
+  patch 'gifts/:id/assignee', to: "gifts#add_assignee", as: :add_assignee
   resources :posts
   resources :recommendations, only: [:index, :show, :update] do
     collection do

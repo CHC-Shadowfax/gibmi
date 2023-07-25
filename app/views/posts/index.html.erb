@@ -1,5 +1,5 @@
 <div class= "blog__title">
-  <div class= "banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1513201099705-a9746e1e201f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGdpZnRzfGVufDB8fDB8fHwy&auto=format&fit=crop&w=800&q=60);">
+  <div class= "banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/free-photo/top-view-violet-gift-box_1150-6685.jpg?size=626&ext=jpg);">
     <div class="d-block">
       <h1>Welcome to our Blog!</h1>
       <p>Here you can find all the latest news and updates from us.</p>
@@ -20,23 +20,26 @@
         <div class="posts-container">
           <% @posts.each do |post| %>
             <div class= "post">
-              <%= link_to post do %>
-                <%= cl_image_tag post.photo.key %>
-                <div class= "post_title" >
-                  <%= post.title %>
-                </div>
-                <div class= "post_content">
-                  <p><%= post.content %></p>
-                  <div class="btn btn-outline-info"> <%= link_to "Read more", post_path(post) %> </div>
-                  <div class="card-footer text-right">
-                    <small class="text-muted">
-                      <p class="date">Created on:
-                        <%= post.created_at.strftime("%m/%d/%Y") %> </p>
-                      <span class="font-weight-bold"> -gibMi Team</span>
-                    </small>
+              <div> <%= link_to post do %>
+                  <%= cl_image_tag post.photo.key %>
+                  <div class= "post_title" >
+                    <%= post.title %>
                   </div>
+                  <div class= "post_content">
+                    <p><%= post.content.truncate(70) %></p>
+                    <div class="btn btn-outline-info btn-read">
+                      <%= link_to "Read more", post_path(post) %>
+                    </div>
+                  </div>
+                <%end%>
+                <div class="card-footer text-right">
+                  <small class="text-muted">
+                    <p class="date">Created on:
+                      <%= post.created_at.strftime("%m/%d/%Y") %> </p>
+                    <span class="font-weight-bold"> -gibMi Team</span>
+                  </small>
                 </div>
-              <%end%>
+              </div>
             </div>
           <% end %>
         </div>
@@ -52,21 +55,23 @@
                   <img class="i" src="https://cdn-icons-png.flaticon.com/128/2549/2549594.png" alt="icon">
                 </div>
               </div>
-              <div class="list-group">
-                <a href="http://localhost:3000/posts/12" class="list-group-item list-group-item-action">
-                  <div class = "row no-gutters">
-                    <div class="col-auto d-flex align-items-center">
-                      1.-
-                      <div class="col-d-flex align-itmes-center px-1">
-                        <img data-src="https://images.unsplash.com/photo-1524677380467-30abe3c55345?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZSUyMGdpdmluZyUyMGdpZnRzfGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60" class="card-img-top b-lazy initial loaded" alt="Giving is a love language" src="https://images.unsplash.com/photo-1524677380467-30abe3c55345?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZSUyMGdpdmluZyUyMGdpZnRzfGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60">
-                      </div>
-                      <div class="col-9 d-flex align-items-center">
-                        <small> Giving is a love language</small>
+              <% @top_posts.each_with_index do | post, index | %>
+                <div class="list-group">
+                  <%= link_to post_path(post), class: "list-group-item list-group-item-action" do %>
+                    <div class = "row no-gutters">
+                      <div class="col-auto d-flex align-items-center">
+                        <%= index + 1 %>.
+                        <div class="col-d-flex align-itmes-center px-1">
+                          <%= cl_image_tag post.photo.key, class: "recommended-img" %>
+                        </div>
+                        <div class="col-9 d-flex align-items-inherit" class="title-recom">
+                          <small> <%= post.title %></small>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </a>
-              </div>
+                  <% end %>
+                </div>
+              <% end %>
             </div>
             <div class="d-flex justify-content-center">
               <img class="i" src="https://cdn-icons-png.flaticon.com/128/2549/2549594.png" alt="icon">
@@ -80,13 +85,16 @@
             <div>
               <h5 class="card-title">Sign up now and start the gibMi expierence!</h5>
               <p class="card-text">Make gift giving easy for everyone. </p>
-              <div class="btn btn-primary">Sign Up</div>
+              <div class="btn btn-primary">
+                <%= link_to "Sign Up", new_user_registration_path %>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <%= paginate @posts %>
   <% if current_user.admin? %>
     <div class="btn btn-primary">
       <%= link_to "Add a new post", new_post_path %>

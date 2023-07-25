@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_20_053125) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_25_030302) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -86,6 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_053125) do
     t.string "address"
     t.string "url"
     t.string "size"
+    t.string "assignee_email"
     t.index ["list_id"], name: "index_gifts_on_list_id"
     t.index ["user_id"], name: "index_gifts_on_user_id"
   end
@@ -110,6 +111,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_053125) do
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "featured", default: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -124,7 +126,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_053125) do
     t.string "url"
     t.string "purchase_places"
     t.bigint "gift_id"
+    t.bigint "list_id", null: false
     t.index ["gift_id"], name: "index_user_gift_recomendations_on_gift_id"
+    t.index ["list_id"], name: "index_user_gift_recomendations_on_list_id"
     t.index ["user_id"], name: "index_user_gift_recomendations_on_user_id"
   end
 
@@ -157,5 +161,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_053125) do
   add_foreign_key "lists", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "user_gift_recomendations", "gifts"
+  add_foreign_key "user_gift_recomendations", "lists"
   add_foreign_key "user_gift_recomendations", "users"
 end

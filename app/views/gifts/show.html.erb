@@ -1,26 +1,19 @@
 <div class="gift-container">
-    <%= render 'gift', gift: @gift%>
-
-    <div class="gift-actions-container">
-      <% if @gift.user_id == current_user.id %>
-        <%= link_to edit_gift_path(@gift) do %>
+  <%= render 'gift', gift: @gift%>
+  <div class="gift-actions-container">
+    <% if current_user && @gift.user_id == current_user.id %>
+      <%= link_to edit_gift_path(@gift) do %>
         <i class="fa-regular fa-pen-to-square" style="color: #D0BDF4;"></i>
       <% end %>
     <% end %>
-
-
-      <% if @gift.user_id == current_user.id %>
-        <%= link_to(gift_path(@gift),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }) do %>
-          <i class="fa-solid fa-trash" style="color: #D0BDF4;"></i>
-        <% end %>
+    <% if current_user && @gift.user_id == current_user.id %>
+      <%= link_to(gift_path(@gift),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }) do %>
+        <i class="fa-solid fa-trash" style="color: #D0BDF4;"></i>
       <% end %>
-
-      <%= link_to list_path(@gift.list, code: @gift.list.code) do %>
+    <% end %>
+    <%= link_to list_path(@gift.list, code: @gift.list.code) do %>
       <i class="fa-solid fa-arrow-left-long" style="color: #D0BDF4;"></i>
-      <% end %>
-    </div>
+    <% end %>
+  </div>
 </div>
-
-
-

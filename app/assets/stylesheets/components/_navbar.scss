@@ -1,16 +1,31 @@
 .navbar-lewagon {
-  justify-content: space-between;
+  justify-content: space-around;
   background: white;
   border-bottom: 1px solid lightgray;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+
+}
+
+@media (min-width: 768px) {
+  .navbar-desktop-left {
+    justify-content: end;
+  }
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+// la barra con el span entra en conflicto
+
+// .navbar-toggler-icon{
+//   top: 0px;
+//   left: 28px;
+//   transform: scale(1.0);
+// }
 
 .gibmi-logo {
   background-image: image-url("logo.png") ;
@@ -87,17 +102,18 @@ button {
 }
 
 #cover {
-  position: absolute;
-  top: 93%;
-  left: 0;
-  right: 0;
-  width: 550px;
-  padding: 35px;
-  margin: -83px auto 0 auto;
-  background-color: #A28089;
+  // position: absolute;
+  // top: 93%;
+  // left: 0;
+  // right: 0;
+  width: 50%;
+  // padding: 35px;
+  padding-left: 20px;
+  // margin: -83px auto 0 auto;
+  background-color: #DCCEEA;
   border-radius: 20px;
   // box-shadow: 0 10px 40px #A28089, 0 0 0 20px #ffffffeb;
-  transform: scale(0.6);
+  // transform: scale(0.6);
 }
 
 form {
@@ -120,7 +136,7 @@ input[type="text"]::placeholder {
   padding-left: 35px;
 }
 
-button {
+#search-btn {
   position: relative;
   display: block;
   width: 84px;
@@ -142,7 +158,7 @@ button {
   transition: 0.5s ease all;
 }
 
-button span {
+#search-btn span {
   position: absolute;
   top: 30px;
   left: 40px;
@@ -155,8 +171,8 @@ button span {
   transition: 0.5s ease all;
 }
 
-button span:before,
-button span:after {
+#search-btn span:before,
+#search-btn span:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -186,18 +202,22 @@ button span:after {
   transform: rotateZ(0);
 }
 
-#s-cover:hover button span:before {
+#s-cover:hover #search-btn span:before {
   bottom: 11px;
   transform: rotateZ(52deg);
 }
 
-#s-cover:hover button span:after {
+#s-cover:hover #search-btn span:after {
   bottom: -11px;
   transform: rotateZ(-52deg);
 }
-#s-cover:hover button span:before,
-#s-cover:hover button span:after {
+#s-cover:hover #search-btn span:before,
+#s-cover:hover #search-btn span:after {
   right: -6px;
   width: 40px;
   background-color: #fff;
 }
+
+
+// media query esconda una
+// media query presente la otra
