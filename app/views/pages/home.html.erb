@@ -7,11 +7,15 @@
 <section>
   <div class="container2">
     <div class="row">
-      <div class = "home-action-container d-flex justify-content-between">
+      <div class = "home-action-container d-flex">
         <div id="create"><%= link_to new_list_path do %>
             <i class="fa-solid fa-circle-plus" style="color: #D0BDF4;"> New list</i>
           <% end %>
         </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class = "home-action-container d-flex">
         <div id="see"><%= link_to lists_path do%>
             <i class="fa-solid fa-list-ul"> View lists</i>
           <% end %>

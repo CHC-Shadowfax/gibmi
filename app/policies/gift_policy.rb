@@ -19,6 +19,14 @@ class GiftPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def add_assignee_email?
+    !record.has_assignee?
+  end
+
+  def add_assignee?
+    !record.has_assignee?
+  end
+
   def destroy?
     record.user == user
     # - record: the list passed to the `authorize` method in controller
