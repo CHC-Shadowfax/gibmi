@@ -194,6 +194,7 @@ GEM
     nokogiri (1.15.2-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pagy (6.0.4)
     pg (1.5.3)
     pg_search (2.3.6)
       activerecord (>= 5.2)
@@ -335,6 +336,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   kaminari
+  pagy
   pg (~> 1.1)
   pg_search
   pry-rails

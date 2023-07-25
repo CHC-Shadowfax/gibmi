@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def index
     @posts = policy_scope(Post.all)
     @top_posts = [Post.find(39), Post.find(37), Post.find(35), Post.find(36), Post.find(38)]
