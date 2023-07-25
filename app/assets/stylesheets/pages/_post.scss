@@ -176,9 +176,13 @@ text-align: center;
 
 
 .recommended-img {
-height: 50px;
-border-radius: 15px;
+  height: 50px;
+  border-radius: 15px;
+  width: 50px;
+  object-fit: cover;
+  margin-right: 15px;
 }
+
 
 .list-group {
   margin: 1px;
@@ -197,4 +201,13 @@ border-radius: 15px;
     text-align: inherit;
     display: inline-block;
     margin: 0 20px;
+ }
+
+ .pagination {
+  justify-content: space-between;
+  width: 25%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 20px 0;
  }

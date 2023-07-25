@@ -12,27 +12,130 @@ User.create email: "visitor@gibmi.com.mx", password: "Password12", role: 0
 
 
 #blog post seeds
-BLOG = [
-  'https://images.unsplash.com/photo-1536594527669-2f555de54e95?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80',
-  'https://images.unsplash.com/photo-1591160690555-5debfba289f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHVwcHl8ZW58MHx8MHx8fDI%3D&auto=format&fit=crop&w=800&q=60',
-  'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHB1cnNlfGVufDB8fDB8fHwy&auto=format&fit=crop&w=800&q=60',
-  'https://images.unsplash.com/photo-1573148195900-7845dcb9b127?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGlwaG9uZXxlbnwwfHwwfHx8Mg%3D%3D&auto=format&fit=crop&w=800&q=60',
-  'https://images.unsplash.com/photo-1686778739165-74526e0a73a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHN0YW5sZXklMjBjdXB8ZW58MHx8MHx8fDI%3D&auto=format&fit=crop&w=800&q=60',
-  'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNvbXB1dGVyfGVufDB8fDB8fHwy&auto=format&fit=crop&w=800&q=60',
+
+HOLIDAYS = [
+   {
+    ID: 'MOTHERSDAY',
+    IMAGE: 'https://images.unsplash.com/photo-1589169011402-8b2cbd1ee593?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bW90aGVyJTIwYW5kJTIwY2hpbGR8ZW58MHx8MHx8fDI%3D&auto=format&fit=crop&w=800&q=60',
+    DATE: "05-09-2021",
+    TITLE: "Happy Mother's Day",
+    FEATURED: false,
+    CONTENT: "Can you believe it is May!? Around the corner you see all of the flowers come up. I love you mom baloons. That's it! Mother's Day is around the corner."
+  },
+   {
+    ID: 'CHRISTMAS',
+    IMAGE: 'https://images.unsplash.com/photo-1545622783-b3e021430fee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNocmlzdG1hc3xlbnwwfHwwfHx8Mg%3D%3D&auto=format&fit=crop&w=800&q=60',
+    DATE: "12-25-2023",
+    TITLE: "It's the most wonderful time of the year!",
+    FEATURED: true,
+    CONTENT: "Christmas is a time for family and friends. It is a special time to be thankful for all of the wonderful blessings in our lives. Sending you good wishes and the hope that your holiday will be a joyous one."
+  },
+  {
+    ID: 'JULY4TH',
+    IMAGE: 'https://images.unsplash.com/photo-1436124026657-36828b43c7ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8NHRoJTIwb2YlMjBqdWx5fGVufDB8fDB8fHwy&auto=format&fit=crop&w=800&q=60',
+    DATE: "07-04-2023",
+    TITLE: "Happy 4th of July",
+    FEATURED: false,
+    CONTENT: "Happy 4th of July! I hope you have a fun and safe holiday."
+  },
+   {
+    ID:'ANNASBIRTHDAY',
+    IMAGE: 'https://res.cloudinary.com/dgeduaopr/image/upload/v1690248088/Lisset_-_2023-07-24_08_21_08_awodyy.jpg',
+    DATE: "01-08-2023",
+    TITLE: "Happy Birthday Anna",
+    FEATURED: true,
+    CONTENT: "Happy Birthday Anna! It's the BIG 30! Let's celebrate and make this a memorable year!"
+  },
+
+  {
+    ID: 'FATHERSDAY',
+    IMAGE:'https://images.unsplash.com/photo-1605812830455-2fadc55bc4ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGZhdGhlcnMlMjBkYXl8ZW58MHx8MHx8fDI%3D&auto=format&fit=crop&w=800&q=60',
+    DATE: "06-18-2023",
+    TITLE: "Happy Father's Day",
+    FEATURED: false,
+    CONTENT: "You are the best dad ever! I love you so much. Happy Father's Day!"
+  },
+
+  {
+  ID: 'GRANDPARENTSDAY',
+  IMAGE: 'https://images.unsplash.com/photo-1592381499682-33cee994fedd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGdyYW5kJTIwcGFyZW50c3xlbnwwfHwwfHx8Mg%3D%3D&auto=format&fit=crop&w=800&q=60',
+  DATE:"09-10-2023",
+  TITLE: "Happy Grandparents Day",
+  FEATURED: false,
+  CONTENT: "Another day with your loving grandparents. Let's give thanks for having them another year and make them feel loved and celebrated."
+  },
+
+   {
+    ID: 'VALENTINESDAY',
+    IMAGE:'https://images.unsplash.com/photo-1484678002699-0e7dc5fa52c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAzfHx2YWxlbnRpbmVzJTIwZGF5fGVufDB8fDB8fHwy&auto=format&fit=crop&w=800&q=60',
+    DATE:"02-14-2023",
+    TITLE: "Happy Valentine's Day",
+    FEATURED: true,
+    CONTENT: "Today is the day to celebrate love! Happy Valentine's Day!"
+  },
+
+  {
+  ID: 'MUSICIANSDAY',
+  IMAGE: 'https://images.unsplash.com/photo-1525201548942-d8732f6617a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3VpdGFyfGVufDB8fDB8fHwy&auto=format&fit=crop&w=800&q=60',
+  DATE: "11-22-2023",
+  TITLE: "Happy Musicians Day",
+  FEATURED: true,
+  CONTENT: "Give the gift of music. Music is the universal language of mankind."
+},
+
+   {
+    ID: 'KIDSDAY',
+    DATE: "04-30-2023",
+    IMAGE: 'https://images.unsplash.com/photo-1597524181043-5df2539fabf8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fGtpZHMlMjBkYXl8ZW58MHx8MHx8fDI%3D&auto=format&fit=crop&w=800&q=60',
+    TITLE: "Happy Kids Day",
+    FEATURED: false,
+    CONTENT: "Today is the day to celebrate kids! They will only be the age they are once , let's make it count and make the best of it! Happy Kids Day!"
+  },
+
+  {
+    ID: 'TEACHERSDAY',
+    DATE: "05-15-2023",
+    IMAGE: 'https://images.unsplash.com/photo-1511629091441-ee46146481b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dGVhY2hlcnMlMjBkYXl8ZW58MHx8MHx8fDI%3D&auto=format&fit=crop&w=800&q=60',
+    TITLE: "Happy Teachers Day",
+    FEATURED: false,
+    CONTENT: "Today is the day to celebrate teachers! They are the ones who teach us and guide us to be the best we can be. Happy Teachers Day!"
+  },
+
+
+  {
+    ID: 'NATIONALWOMANSDAY',
+    DATE: '08-09-2023',
+    IMAGE: 'https://images.unsplash.com/photo-1498661694102-0a3793edbe74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGdyb3VwJTIwb2YlMjB3b21hbnxlbnwwfHwwfHx8Mg%3D%3D&auto=format&fit=crop&w=800&q=60',
+    TITLE: "It's National Woman's Day",
+    FEATURED: false,
+    CONTENT: "Woman have many talents and we can all think of that one person that has been a big example in our lives. Let's celebrate them today!"
+  },
+
+  {
+    ID: 'NATIONALPETDAY',
+    DATE: '04-11-2023',
+    IMAGE: 'https://images.unsplash.com/photo-1560743641-3914f2c45636?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzd8fGRvZ3xlbnwwfHwwfHx8Mg%3D%3D&auto=format&fit=crop&w=800&q=60',
+    TITLE: "It's National Pet Day",
+    FEATURED: true,
+    CONTENT: "Pets can be man's best friend. They are loyal and loving. Give a person the gift of having a loyal forever friend. Happy National Pet Day!"
+  }
 ]
 
-6.times do
-file = URI.open(BLOG.sample)
-post = Post.new(
-title: Faker::Lorem.sentence(word_count: 3),
-content: Faker::Lorem.paragraph(sentence_count: 3),
-user_id: User.first.id,
-#start_date: frh[:b_begin]
-created_at: Faker::Date.between(from: '2022-01-01', to: '2023-7-18'),
-)
-post.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-post.save
+HOLIDAYS.each do |holiday|
+  print '🎉'
+  file = URI.open(holiday[:IMAGE])
+  post = Post.new(
+  title: holiday[:TITLE],
+  content: holiday[:CONTENT],
+  user_id: User.first.id,
+  featured: holiday[:FEATURED],
+  #start_date: frh[:b_begin]
+  created_at: holiday[:DATE]
+  )
+  post.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+  post.save
 end
+print "Posts created!"
 
 # 1.times do
 #   feature = Post.create(
