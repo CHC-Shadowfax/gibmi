@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :lists
   resources :gifts, except: [:index]
   resources :posts
-  resources :recommendations, only: [:index, :show] do
+  resources :recommendations, only: [:index, :show, :update] do
     collection do
       get :generate
     end
