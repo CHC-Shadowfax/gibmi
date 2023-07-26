@@ -1,10 +1,13 @@
 class PostsController < ApplicationController
+
   def index
-    @posts = policy_scope(Post.all)
+    @posts = policy_scope(Post.page(params[:page]).per(4))
+    @top_posts = Post.featured
   end
 
   def show
-    @post = authorize Post.find(params[:id])
+    @post = Post.find(params[:id])
+    authorize @post
     @post.update views_count: @post.views_count + 1
   end
 

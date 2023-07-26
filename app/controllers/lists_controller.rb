@@ -42,7 +42,7 @@ class ListsController < ApplicationController
     authorize @list
 
     if @list.save
-      redirect_to list_path(@list)
+      redirect_to list_path(@list, query: @list.code)
     else
       render :new
     end
