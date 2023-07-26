@@ -1,5 +1,5 @@
 <h1>Find some gift ideas!</h1>
-
+<%= link_to 'Generate recommendations', generate_recommendations_path %>
 <div class="gifts-container">
   <% @recommendations.each do |r| %>
     <%= link_to recommendation_path(r) do %>
@@ -11,4 +11,6 @@
         </div>
       </div>
   <% end %>
+
 </div>
+<%= paginate @recommendations %>
