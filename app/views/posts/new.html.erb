@@ -1,1 +1,16 @@
-<%=render "form"%>
+<div class="container">
+  <div class="row justify-content-center ">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="form-login">
+        <h2>Create a new post below</h2>
+        <%= simple_form_for @post do |f| %>
+          <div class="form-inputs">
+            <%= f.input :title, placeholder: 'Title' %>
+            <%= f.input :content, placeholder: 'Add content' %>
+            <%= f.input :photo, as: :file %>
+            <%= f.submit "Save", class: "btn btn-primary rounded-pill text-center" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

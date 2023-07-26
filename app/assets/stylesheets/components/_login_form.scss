@@ -1,0 +1,65 @@
+.form-login {
+  background: white;
+  padding: 10px 20px;
+  margin-top: 50px;
+  border-radius: 9px;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+
+  h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #D0BDF4;
+  }
+  .btn {
+    width: 100%;
+    margin-bottom: 20px
+  }
+
+  #cancel {
+    color: #888888;
+
+    .btn {
+
+      width: 41%;
+    }
+
+  }
+
+  p {
+    margin-top: 20px;
+    color: #888888;
+  }
+}
+
+.shared-links {
+  text-decoration: underline;
+  text-decoration-color: #D0BDF4 ;
+
+  a {
+    color: #D0BDF4;
+  }
+}
+
+
+.form-actions {
+  text-align: center;
+
+
+  .btn {
+    background-color: #A28089;
+    border-color: #A28089;
+    width: 25%;
+
+  }
+
+}
+
+.form-label {
+  color: #888888
+}
+
+.form-check-label {
+  color: #888888
+}

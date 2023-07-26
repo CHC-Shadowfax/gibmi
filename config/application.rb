@@ -12,7 +12,12 @@ module Gibmi
       generate.assets false
       generate.helper false
       generate.test_framework :test_unit, fixture: false
+
     end
+    OpenAI.configure do |config|
+      config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
+    end
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
@@ -24,4 +29,6 @@ module Gibmi
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
   end
+
+
 end

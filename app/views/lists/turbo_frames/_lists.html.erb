@@ -1,0 +1,12 @@
+<h1></h1>
+
+
+<% if @lists.nil? %>
+  <h1>CREATE A LIST!!! PANA!!!!</h1>
+<% else %>
+  <ul>
+    <% @lists.each do |list| %>
+      <li><%= link_to list.name, list %></li>
+    <% end %>
+  </ul>
+<% end %>

@@ -2,5 +2,7 @@
   <%= f.input :name, placeholder: 'List name' %>
   <%= f.input :event_date, placeholder: 'Date of your event' %>
   <%= f.input :description, placeholder: 'Add description' %>
+  <%= f.label :photo_id, "Choose your Event Type" %>
+  <%= f.select :photo_id, List::PHOTO_ID.map { |photo| [photo[0], photo[1]] }, { include_blank: true } %>
   <%= f.submit "Save", class: "btn btn-primary rounded-pill text-center" %>
 <% end %>

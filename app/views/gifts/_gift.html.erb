@@ -1,4 +1,18 @@
-<div class= "border bag-show">
-  <h5 class="card-title"><%= gift.name %></h5>
-   <center> <%= cl_image_tag gift.photo.key %> </center>
-   <p class="card-text"><strong>Description</strong>:<%= gift.description %></p>
+<div class="gift-img"> <%= cl_image_tag gift.photo.key %> </div>
+<div class="gift-info-container">
+  <div id="gift-title"><%= gift.name %></div>
+  <p id="gift-description"><%= gift.description %></p>
+  <p id="gift-url">Find it at: <%= gift.address %></p>
+</div>
+<!-- Button trigger modal -->
+<% if gift.has_assignee? %>
+  <h1>APARTADO!!!</h1>
+<% else %>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Give this gift!
+  </button>
+<% end %>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <%= render 'modal_gift', gift: @gift %>
+</div>

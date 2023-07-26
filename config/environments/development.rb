@@ -80,4 +80,5 @@ Rails.application.configure do
     user_name: 'latamtrip@gibmi.com.mx',
     password: ENV['EMAIL_PASSWORD'],
   }
+  # config.hosts << "3035-2603-8081-d000-1b-2137-d221-507d-447c.ngrok-free.app"
 end

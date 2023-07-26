@@ -78,4 +78,11 @@ group :test do
   gem "webdrivers"
 end
 
+gem "kaminari"
 gem "cloudinary"
+
+gem "pg_search"
+gem "ruby-openai"
+gem "httparty"
+gem "faker"
+gem "sidekiq"

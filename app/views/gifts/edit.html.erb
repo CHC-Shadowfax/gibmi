@@ -1,3 +1,12 @@
-<h1><strong>Edit this gift</strong> </h1>
-  <%= render 'simple_form', gift: @gift %>
-  <%= link_to "Back to list", list_path, class: "btn btn-link link-dark" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="container p-5 rounded">
+        <h1><strong>Edit this gift</strong> </h1>
+          <%= render 'simple_form', gift: @gift %>
+          <%= link_to "Back to list", list_path, class: "btn btn-link link-dark" %>
+        </div>
+    </div>
+  </div>
+</div>
+

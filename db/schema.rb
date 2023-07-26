@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[7.0].define(version: 2023_07_11_050549) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_25_030302) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,12 +42,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_050549) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_categories_users_on_category_id"
+    t.index ["user_id"], name: "index_categories_users_on_user_id"
+  end
+
   create_table "features", force: :cascade do |t|
     t.string "name"
     t.string "value"
     t.bigint "gift_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "size"
     t.index ["gift_id"], name: "index_features_on_gift_id"
   end
 
@@ -69,6 +84,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_050549) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "address"
+    t.string "url"
+    t.string "size"
+    t.string "assignee_email"
     t.index ["list_id"], name: "index_gifts_on_list_id"
     t.index ["user_id"], name: "index_gifts_on_user_id"
   end
@@ -76,10 +94,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_050549) do
   create_table "lists", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.string "code"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "event_date"
+    t.string "photo_id"
     t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
@@ -91,15 +111,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_050549) do
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "featured", default: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "user_gift_recomendations", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "gift_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "description"
+    t.string "image"
+    t.float "price"
+    t.string "url"
+    t.string "purchase_places"
+    t.bigint "gift_id"
+    t.bigint "list_id", null: false
     t.index ["gift_id"], name: "index_user_gift_recomendations_on_gift_id"
+    t.index ["list_id"], name: "index_user_gift_recomendations_on_list_id"
     t.index ["user_id"], name: "index_user_gift_recomendations_on_user_id"
   end
 
@@ -123,6 +152,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_050549) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "categories_users", "categories"
+  add_foreign_key "categories_users", "users"
   add_foreign_key "features", "gifts"
   add_foreign_key "gift_links", "gifts"
   add_foreign_key "gifts", "lists"
@@ -130,5 +161,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_050549) do
   add_foreign_key "lists", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "user_gift_recomendations", "gifts"
+  add_foreign_key "user_gift_recomendations", "lists"
   add_foreign_key "user_gift_recomendations", "users"
 end
