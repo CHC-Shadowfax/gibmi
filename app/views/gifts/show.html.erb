@@ -1,4 +1,4 @@
-<div class="gift-container">
+<div class="gift-container p-3">
   <%= render 'gift', gift: @gift%>
   <div class="gift-actions-container">
     <% if current_user && @gift.user_id == current_user.id %>
