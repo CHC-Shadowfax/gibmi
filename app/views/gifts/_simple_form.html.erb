@@ -3,6 +3,7 @@
   <%= f.input :description, placeholder: 'Add description' %>
   <%= f.input :size, placeholder: 'Specifications: Size, Color, etc...' %>
   <%= f.input :list_id, as: :select, collection: List.all %>
+  <%= f.input :url, placeholder: 'website' %>
   <%= f.input :photo, as: :file, placeholder: 'Add photo' %>
   <%= f.input :address, input_html: { id: 'pac-input' }%>
   <%= f.submit "Save", class: "btn btn-primary rounded-pill text-center" %>

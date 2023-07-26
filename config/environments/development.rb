@@ -72,13 +72,14 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
 
-  config.action_mailer.smtp_settings = {
-    address: 'mail.gibmi.com.mx',
-    port: 26,
-    user_name: 'latamtrip@gibmi.com.mx',
-    password: ENV['EMAIL_PASSWORD'],
-  }
+  # config.action_mailer.smtp_settings = {
+  #   address: 'mail.gibmi.com.mx',
+  #   port: 26,
+  #   user_name: 'latamtrip@gibmi.com.mx',
+  #   password: ENV['EMAIL_PASSWORD'],
+  # }
   # config.hosts << "3035-2603-8081-d000-1b-2137-d221-507d-447c.ngrok-free.app"
 end
