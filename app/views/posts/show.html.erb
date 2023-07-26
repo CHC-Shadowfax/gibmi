@@ -1,6 +1,25 @@
-<%= image_tag @post.photo.url %>
-<h1><%= @post.title %></h1>
-<p><%= @post.content %></p>
+<div class="container pt-3">
+  <div class="row-p">
+    <div class="col-12">
+      <h1 class="font-weight-bold text-center text-secondary"><%= @post.title %></h1>
+      <p class="text-right">
+        <small> <span class= "font-weight-bold">Viewed
+            <%= @post.views_count %> times </span> | Created On: <%= @post.created_at.strftime("%m/%d/%Y") %> </p>
+      </p>
+      <div style="box-sizing: border-box;">
+        <div class="show-img">
+          <%= image_tag @post.photo.url %>
+        </div>
+        <div class="pt-3 text-justify text-md-left">
+          <p class="font-center">
+            <%= @post.content %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 <div>
   <div class="btn-row">
     <% if current_user.admin? %>
@@ -8,7 +27,7 @@
       <p><%= link_to "Delete post", @post, class:"btn btn-primary", method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
     <%end%>
   </div>
-  <p><%= link_to "Go back to blog", posts_path(@post), class:"btn btn-primary" %></p>
+  <p class="btn-back"><%= link_to "Go back to blog", posts_path(@post), class:"btn btn-primary" %></p>
 </div>
 <!-- <div class="d-none col-lg-4 d-lg-block">
 <div class="row pb-4">

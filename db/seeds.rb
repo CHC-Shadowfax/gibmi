@@ -26,7 +26,7 @@ HOLIDAYS = [
     ID: 'CHRISTMAS',
     IMAGE: 'https://images.unsplash.com/photo-1545622783-b3e021430fee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNocmlzdG1hc3xlbnwwfHwwfHx8Mg%3D%3D&auto=format&fit=crop&w=800&q=60',
     DATE: "12-25-2023",
-    TITLE: "It's Chirstmas Time!",
+    TITLE: "It's Christmas Time!",
     FEATURED: true,
     CONTENT: "Christmas is a time for family and friends. It is a special time to be thankful for all of the wonderful blessings in our lives. Sending you good wishes and the hope that your holiday will be a joyous one."
   },
@@ -129,43 +129,9 @@ HOLIDAYS.each do |holiday|
   content: holiday[:CONTENT],
   user_id: User.first.id,
   featured: holiday[:FEATURED],
-  #start_date: frh[:b_begin]
   created_at: holiday[:DATE]
   )
   post.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   post.save
 end
 print "Posts created!"
-
-# 1.times do
-#   feature = Post.create(
-#     title: "Happy Mother's Day",
-#     content: "Can you believe it is May!? Around the corner you see all of the flowers come up. I love you mom baloons. That's it! Mother's Day is around the corner.",
-#     user_id: User.first.id,
-#     created_at: "05-01-2021"
-# )
-
-# puts "Post - #{feature.title} has been created!"
-
-  # puts "Feature Color - #{feature.value} for #{bag.name} has been created!"
-
-  # feature = Feature.create(
-  #   name: "Make",
-  #   value: Faker::Commerce.brand,
-  #   bag_id: bag.id
-  # )
-  # puts "Feature Make - #{feature.value} for #{bag.name} has been created!"
-
-  # feature = Feature.create(
-  #   name: "Material",
-  #   value: Faker::Commerce.material,
-  #   bag_id: bag.id
-  # )
-  # puts "Feature Material - #{feature.value} for #{bag.name} has been created!"
-
-  # feature = Feature.create(
-  #   name: "Size",
-  #   value: SIZE.sample,
-  #   bag_id: bag.id
-  # )
-  # puts "Feature Size - #{feature.value} for #{bag.name} has been created!"
