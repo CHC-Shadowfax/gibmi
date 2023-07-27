@@ -13,4 +13,9 @@ class RecommendationsController < ApplicationController
   def show
     @recommendation = authorize UserGiftRecomendation.find(params[:id])
   end
+
+  def update
+    
+    
+  end
 end
