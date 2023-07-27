@@ -6,12 +6,12 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    address: 'mail.gibmi.com.mx',
-    port: 26,
-    user_name: 'latamtrip@gibmi.com.mx',
-    password: ENV[EMAIL_PASSWORD],
-    domain: "gibmi.com.mx",
-    authentication: :plain,
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    user_name: ENV["SENDGRID_USERNAME"],
+    password: ENV["SENDGRID_PASSWORD"],
+    # domain: "gibmi.com.mx",
+    authentication: "plain",
     enable_starttls_auto: true
   }
 
