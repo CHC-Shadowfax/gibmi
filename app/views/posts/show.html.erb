@@ -1,63 +1,92 @@
-<div class="container pt-3">
-  <div class="row-p">
-    <div class="col-12">
-      <h1 class="font-weight-bold text-center text-secondary"><%= @post.title %></h1>
-      <p class="text-right">
-        <small> <span class= "font-weight-bold">Viewed
-            <%= @post.views_count %> times </span> | Created On: <%= @post.created_at.strftime("%m/%d/%Y") %> </p>
-      </p>
-      <div style="box-sizing: border-box;">
-        <div class="show-img">
-          <%= image_tag @post.photo.url %>
+<div class="blog__show">
+  <div class= "banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/free-photo/top-view-violet-gift-box_1150-6685.jpg?size=626&ext=jpg);">
+    <div class="d-block">
+      <h1>Welcome to our Blog!</h1>
+      <p>Here you can find all the latest news and updates from us.</p>
+    </div>
+  </div>
+  <div class="container pt-4">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="row pb-3">
+          <div class="col-12">
+            <h1 class="font-weight-bold text-center text-secondary"><%= @post.title %></h1>
+            <p class="text-right">
+              <small> <span class= "font-weight-bold">Viewed
+                  <%= @post.views_count %> times </span> | Created On: <%= @post.created_at.strftime("%m/%d/%Y") %>
+              </small>
+            </p>
+            <div class="img-show">
+              <%= image_tag @post.photo.url, :size => "500x300" %>
+            </div>
+            <div class="pt-3 text-justify text-md-left">
+              <p>
+                <%= @post.content %>
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="pt-3 text-justify text-md-left">
-          <p class="font-center">
-            <%= @post.content %>
-          </p>
+      </div>
+      <div class="d-none col-lg-4 d-lg-block">
+        <div class="row pb-4">
+          <div class="col-12">
+            <div class="row pb-3">
+              <div class="col-12">
+                <div class="d-flex justify-content-center">
+                  <img class="i" src="https://cdn-icons-png.flaticon.com/128/2549/2549594.png" alt="icon">
+                  <h2>Recommended</h2>
+                  <img class="i" src="https://cdn-icons-png.flaticon.com/128/2549/2549594.png" alt="icon">
+                </div>
+              </div>
+              <% @top_posts.each_with_index do | post, index | %>
+                <div class="list-group">
+                  <%= link_to post_path(post), class: "list-group-item list-group-item-action" do %>
+                    <div class = "row no-gutters">
+                      <div class="col-auto d-flex align-items-center">
+                        <small>
+                          <%= index + 1 %>.
+                        </small>
+                        <div class="col-d-flex align-itmes-center px-1">
+                          <%= cl_image_tag post.photo.key, class: "recommended-img" %>
+                        </div>
+                        <div class="col-9 d-flex align-items-inherit" class="title-recom">
+                          <small>
+                            <p> <%= post.title %> </p>
+                          </small>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+            <div class="d-flex justify-content-center">
+              <img class="i" src="https://cdn-icons-png.flaticon.com/128/2549/2549594.png" alt="icon">
+              <h2>Remember the Gift</h2>
+              <img class="i" src="https://cdn-icons-png.flaticon.com/128/2549/2549594.png" alt="icon">
+            </div>
+            <div class="card-body">
+              <p>Don't forget to give a gift to your loved ones.</p>
+              <img class="signimg" src="https://images.unsplash.com/photo-1522543558187-768b6df7c25c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHB1cnBsZXxlbnwwfHwwfHx8Mg%3D%3D&auto=format&fit=crop&w=500&q=60">
+            </div>
+            <div>
+              <h5 class="card-title">Sign up now and start the gibMi expierence!</h5>
+              <p class="card-text">Make gift giving easy for everyone. </p>
+              <div class="btn btn-primary">
+                <%= link_to "Sign Up", new_user_registration_path %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-</div>
-<div>
-  <div class="btn-row">
-    <% if current_user.admin? %>
-      <p><%= link_to "Edit post", edit_post_path(@post),  class:"btn btn-primary" %></p>
-      <p><%= link_to "Delete post", @post, class:"btn btn-primary", method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-    <%end%>
-  </div>
-  <p class="btn-back"><%= link_to "Go back to blog", posts_path(@post), class:"btn btn-primary" %></p>
-</div>
-<!-- <div class="d-none col-lg-4 d-lg-block">
-<div class="row pb-4">
-  <div class="col-12">
-    <div class="row pb-3">
-      <div class="col-12">
-        <div class="d-flex justify-content-center">
-          <img class="i" src="https://cdn-icons-png.flaticon.com/128/2549/2549594.png" alt="icon">
-          <h2>Recommended</h2>
-          <img class="i" src="https://cdn-icons-png.flaticon.com/128/2549/2549594.png" alt="icon">
+    <div class="btn-row">
+      <% if current_user.admin? %>
+        <p><%= link_to "Edit post", edit_post_path(@post),  class:"btn btn-primary" %></p>
+        <div class="btn-row 2">
+          <p><%= link_to "Delete post", @post, class:"btn btn-primary", method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
         </div>
-      </div>
-        </div>
+      <%end%>
     </div>
-    <div class="d-flex justify-content-center">
-      <img class="i" src="https://cdn-icons-png.flaticon.com/128/2549/2549594.png" alt="icon">
-      <h2>Remember the Gift</h2>
-      <img class="i" src="https://cdn-icons-png.flaticon.com/128/2549/2549594.png" alt="icon">
-    </div>
-    <div class="card-body">
-      <p>Don't forget to give a gift to your loved ones.</p>
-      <img class="signimg" src="https://images.unsplash.com/photo-1522543558187-768b6df7c25c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHB1cnBsZXxlbnwwfHwwfHx8Mg%3D%3D&auto=format&fit=crop&w=500&q=60">
-    </div>
-    <div>
-      <h5 class="card-title">Sign up now and start the gibMi expierence!</h5>
-      <p class="card-text">Make gift giving easy for everyone. </p>
-      <div class="btn btn-primary">
-        <%= link_to "Sign Up", new_user_registration_path %>
-      </div>
-    </div>
+    <p class="btn-back"><%= link_to "Go back to blog", posts_path(@post), class:"btn btn-primary" %></p>
   </div>
-</div>
-</div> -->
