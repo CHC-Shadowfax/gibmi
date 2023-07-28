@@ -1,32 +1,33 @@
-.card {
-  background-color: $white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-bottom: 20px;
+.card-gift{
+
+
+  .card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    border: 2px solid $purple;
+    border-radius: 10px;
+  }
+
+  .gift-img img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+  }
 
   #gift-title {
     font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-  #gift-description {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 10px;
-  }
-  .card-text {
-    font-size: 14px;
-    font-weight: 400;
-    margin-bottom: 10px;
-  }
-  #gift-url {
-    font-size: 14px;
-    font-weight: 400;
-    margin-bottom: 10px;
+    font-weight: bold;
     color: $purple;
-    &:hover {
-      color: $purple;
-    }
+    text-align: center;
   }
+
+  button {
+    background-color: $purple;
+  }
+
+
+
 }
