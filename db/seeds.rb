@@ -6,9 +6,12 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-User.create email: "latamtrip@gibmi.com.mx", password: "miviajelatam23$", role: 1
-User.create email: "lisette@gibmi.com.mx", password: "Password123", role: 1
-User.create email: "visitor@gibmi.com.mx", password: "Password12", role: 0
+Post.destroy_all
+User.destroy_all
+
+User.create! email: "latamtrip@gibmi.com.mx", password: "miviajelatam23$", role: 1
+User.create! email: "lisette@gibmi.com.mx", password: "Password123", role: 1
+User.create! email: "visitor@gibmi.com.mx", password: "Password12", role: 0
 
 
 #blog post seeds
@@ -133,7 +136,7 @@ HOLIDAYS.each do |holiday|
   created_at: holiday[:DATE]
   )
   post.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-  post.save
+  post.save!
 end
 print "Posts created!"
 
