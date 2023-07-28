@@ -2,12 +2,13 @@
   <div class="card mb-3">
     <div class="row g-0">
       <div class="col-md-4">
-        <div class="gift-img"> <%= cl_image_tag gift.photo.key %> </div>
+        <div class="ms-4 mt-2"> <%= cl_image_tag gift.photo.key, :size => "288x177" %> </div>
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <div id="gift-title"><%= gift.name %></div>
-          <p id="gift-size"><%= gift.size %></p>
+          <p id="gift-description"><%= gift.description %></p>
+          <p id="gift-size"><strong>Specifications: </strong><%= gift.size %></p>
           <p id="gift-url"> <strong>Find it at: </strong><%= gift.address %></p>
           <!-- Button trigger modal -->
           <% if gift.has_assignee? %>
