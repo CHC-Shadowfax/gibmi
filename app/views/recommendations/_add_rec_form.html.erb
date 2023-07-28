@@ -1,0 +1,4 @@
+ <%= simple_form_for @recommendation, url: recommendation_path(@recommendation) do |f| %>
+  <%= f.input :list_id, as: :select, collection: current_user.lists %>
+  <%= f.submit "Save", class: "btn btn-primary rounded-pill text-center" %>
+<% end %>

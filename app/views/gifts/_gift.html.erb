@@ -1,17 +1,27 @@
-<div class="gift-img"> <%= cl_image_tag gift.photo.key %> </div>
-<div class="gift-info-container">
-  <div id="gift-title"><%= gift.name %></div>
-  <p id="gift-description"><%= gift.description %></p>
-  <p id="gift-url">Find it at: <%= gift.address %></p>
-</div>
-<!-- Button trigger modal -->
-<% if gift.has_assignee? %>
-  <h1>APARTADO!!!</h1>
-<% else %>
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Give this gift!
-  </button>
-<% end %>
+<section class="card-gift">
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <div class="gift-img"> <%= cl_image_tag gift.photo.key %> </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <div id="gift-title"><%= gift.name %></div>
+          <p id="gift-size"><%= gift.size %></p>
+          <p id="gift-url"> <strong>Find it at: </strong><%= gift.address %></p>
+          <!-- Button trigger modal -->
+          <% if gift.has_assignee? %>
+            <h1>This Gift has already been claimed. Go back to the list to see more gifts!</h1>
+          <% else %>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Assign me this gift!
+            </button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <%= render 'modal_gift', gift: @gift %>

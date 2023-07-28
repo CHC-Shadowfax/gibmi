@@ -13,4 +13,20 @@ class RecommendationsController < ApplicationController
   def show
     @recommendation = authorize UserGiftRecomendation.find(params[:id])
   end
+
+  def update
+    @recommendation = authorize UserGiftRecomendation.find(params[:id])
+   if @recommendation.update!(recommendation_params)
+    redirect_to lists_path(@recommendation.list, query: @recommendation.list.code)
+   else
+    render :show, status: :unprocessable_entity
+   end
+  end
+
+  private
+
+  def recommendation_params
+    params.require(:user_gift_recomendation).permit(:list_id)
+
+  end
 end
