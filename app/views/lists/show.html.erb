@@ -49,17 +49,16 @@
 </div>
 
 <div class="gifts-container">
-  <% @recommendation.each do |r|%>
-    <%= link_to recommendation do %>
+  <% @list.user_gift_recomendations.each do |gift|%>
+  <%= link_to recommendation_path(gift) do %>
       <div class="gift">
-          <%=image_tag recommendation.photo %>
-        <% end %>
+        <%=image_tag gift.image %>
         <div class="card-container">
-          <h5 class="card_title"><%=r.name%></h5>
+          <h5 class="card_title"><%=gift.name%></h5>
         </div>
       </div>
     <% end %>
-
+  <% end %>
 </div>
 
 <script>
