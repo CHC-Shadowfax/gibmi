@@ -126,7 +126,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_030302) do
     t.string "url"
     t.string "purchase_places"
     t.bigint "gift_id"
-    t.bigint "list_id", null: false
+    t.bigint "list_id"
     t.index ["gift_id"], name: "index_user_gift_recomendations_on_gift_id"
     t.index ["list_id"], name: "index_user_gift_recomendations_on_list_id"
     t.index ["user_id"], name: "index_user_gift_recomendations_on_user_id"
