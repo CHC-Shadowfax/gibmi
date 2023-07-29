@@ -35,8 +35,10 @@
                 <div class="card-footer text-right">
                   <small class="text-muted">
                     <p class="date">Created on:
-                      <%= post.created_at.strftime("%m/%d/%Y") %> </p>
-                    <span class="font-weight-bold"> -gibMi Team</span>
+                      <%= post.event_date %> </p>
+                    <span class="font-weight-bold">
+                      <p>-gibMi Team</p>
+                    </span>
                   </small>
                 </div>
               </div>
@@ -60,12 +62,16 @@
                   <%= link_to post_path(post), class: "list-group-item list-group-item-action" do %>
                     <div class = "row no-gutters">
                       <div class="col-auto d-flex align-items-center">
-                        <%= index + 1 %>.
+                        <small>
+                          <%= index + 1 %>.
+                        </small>
                         <div class="col-d-flex align-itmes-center px-1">
                           <%= cl_image_tag post.photo.key, class: "recommended-img" %>
                         </div>
                         <div class="col-9 d-flex align-items-inherit" class="title-recom">
-                          <small> <%= post.title %></small>
+                          <small>
+                            <p> <%= post.title %> </p>
+                          </small>
                         </div>
                       </div>
                     </div>

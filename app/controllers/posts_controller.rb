@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     authorize @post
     @post.update views_count: @post.views_count + 1
+    @top_posts = Post.featured
   end
 
   def new
