@@ -8,21 +8,23 @@
   <div class="container pt-4">
     <div class="row">
       <div class="col-lg-8">
-        <div class="row pb-3-center">
+        <div class="row pb-3-center" style="margin-right: 3rem;">
           <div class="col-12-center">
-            <h1 class="font-weight-bold text-center text-secondary"><%= @post.title %></h1>
-            <p class="text-right">
-              <small> <span class= "font-weight-bold">Viewed
-                  <%= @post.views_count %> times </span> | Created On: <%= @post.created_at.strftime("%m/%d/%Y") %>
-              </small>
-            </p>
-            <div class="img-show">
-              <%= image_tag @post.photo.url, :size => "500x300" %>
-            </div>
-            <div class="pt-3 text-justify text-md-left">
-              <p>
-                <%= @post.content %>
+            <div class="show-block">
+              <h1 class="font-weight-bold text-center"><%= @post.title %></h1>
+              <p class="text-right">
+                <small> <span class= "font-weight-bold">Viewed
+                    <%= @post.views_count %> times </span> | Created On: <%= @post.created_at.strftime("%m/%d/%Y") %>
+                </small>
               </p>
+              <div class="img-show">
+                <%= image_tag @post.photo.url, :size => "288x177" %>
+              </div>
+              <div class="pt-3 text-justify text-md-left">
+                <p>
+                  <%= @post.content %>
+                </p>
+              </div>
             </div>
           </div>
         </div>
