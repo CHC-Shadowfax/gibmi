@@ -2,7 +2,11 @@
   <div class="card mb-3">
     <div class="row g-0">
       <div class="col-md-4">
-        <div class="ms-4 mt-2"> <%= cl_image_tag gift.photo.key, :size => "288x177" %> </div>
+        <% if gift.class == UserGiftRecomendation %>
+          <div class="ms-4 mt-2"> <%= image_tag gift.image, :size => "288x177" %> </div>
+        <% else %>
+          <div class="ms-4 mt-2"> <%= cl_image_tag gift.photo.key, :size => "288x177" %> </div>
+        <% end %>
       </div>
       <div class="col-md-8">
         <div class="card-body">

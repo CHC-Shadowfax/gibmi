@@ -11,7 +11,8 @@ class GiftsController < ApplicationController
   end
 
   def show
-    @gift = authorize Gift.find_by(id: params[:id])
+    @gift = UserGiftRecomendation.find(params[:recommendation_id]) if params[:recommendation_id]
+    authorize @gift
   end
 
   def create

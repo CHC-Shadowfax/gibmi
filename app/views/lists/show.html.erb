@@ -47,10 +47,9 @@
     <% end %>
   <% end %>
 </div>
-
 <div class="gifts-container">
   <% @list.user_gift_recomendations.each do |gift|%>
-  <%= link_to recommendation_path(gift) do %>
+    <%= link_to gift_path(recommendation_id: gift) do %>
       <div class="gift">
         <%=image_tag gift.image %>
         <div class="card-container">
@@ -60,7 +59,6 @@
     <% end %>
   <% end %>
 </div>
-
 <script>
   var shareQrCode = document.querySelector(".share-qr-code");
   var modal = document.querySelector(".modal");
