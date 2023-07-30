@@ -13,7 +13,6 @@ User.create! email: "latamtrip@gibmi.com.mx", password: "miviajelatam23$", role:
 User.create! email: "lisette@gibmi.com.mx", password: "Password123", role: 1
 User.create! email: "visitor@gibmi.com.mx", password: "Password12", role: 0
 
-
 #blog post seeds
 
 HOLIDAYS = [

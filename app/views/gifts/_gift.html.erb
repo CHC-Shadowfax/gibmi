@@ -12,8 +12,18 @@
         <div class="card-body">
           <div id="gift-title"><%= gift.name %></div>
           <p id="gift-description"><%= gift.description %></p>
-          <p id="gift-size"><strong>Specifications: </strong><%= gift.size %></p>
-          <p id="gift-url"> <strong>Find it at: </strong><%= gift.address %></p>
+          <% if gift.class == UserGiftRecomendation %>
+            <div class="recommendation-description"><strong>Find your gift here:</strong>
+              <% gift.purchase_places.split(", ").each do |rec| %>
+                <%= link_to ensure_https(rec), ensure_https(rec), target:"_blank" %>
+              <% end %>
+            </div>
+          <% else %>
+            <p id="gift-size"><strong>Specifications: </strong><%= gift.size %></p>
+          <% end %>
+          <% if gift.class != UserGiftRecomendation %>
+            <p id="gift-url"> <strong>Find it at: </strong><%= gift.address %></p>
+          <% end %>
           <!-- Button trigger modal -->
           <% if gift.has_assignee? %>
             <h1>This Gift has already been claimed. Go back to the list to see more gifts!</h1>
