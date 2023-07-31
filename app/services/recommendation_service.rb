@@ -40,7 +40,7 @@ class RecommendationService
     prompt = "I need direct straight answer with no additional explanation, give me 3 online stores that can I use to go buy #{name}, just give me straight the URL of the stores, dont use numbering to list the results, comma separate the results"
     response = client_message(prompt)
 
-    puts "response: #{response}"
+    # puts "response: #{response}"
     response.dig("choices", 0, "message", "content")
   end
 

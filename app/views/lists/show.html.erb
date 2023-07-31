@@ -90,12 +90,13 @@
 
   function getlink() {
   var aux = document.createElement("input");
-  aux.setAttribute("value", window.location.href.split("?")[0].split("#")[0]);
+
+  aux.setAttribute("value", window.location.href);
   document.body.appendChild(aux);
   aux.select();
   document.execCommand("copy");
   document.body.removeChild(aux);
-  alert("URL copiada al portapapeles\n\n" + window.location.href.split("?")[0].split("#")[0]);
+  alert("URL copiada al portapapeles\n\n" + window.location.href);
   }
 
 </script>
