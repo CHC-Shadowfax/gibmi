@@ -2,6 +2,7 @@
   <div class="card mb-3">
     <div class="row g-0">
       <div class="col-md-4">
+       <%= gift.class %>
         <% if gift.class == UserGiftRecomendation %>
           <div class="ms-4 mt-2"> <%= image_tag gift.image, :size => "288x177" %> </div>
         <% else %>
