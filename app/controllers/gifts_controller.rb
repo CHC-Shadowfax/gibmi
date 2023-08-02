@@ -1,5 +1,5 @@
 class GiftsController < ApplicationController
-  before_action :set_gift, only: %i[show edit update destroy]
+  before_action :set_gift, only: %i[show]
   skip_before_action :authenticate_user!, only: [:show, :add_assignee_email, :add_assignee]
 
   def index
@@ -38,9 +38,10 @@ class GiftsController < ApplicationController
   end
 
   def destroy
-    authorize @gift.destroy
-    # redirect_to list_path(@gift.list, query: @gift.list.code), notice: 'Gift was successfully destroyed.', status: :see_other
-     redirect_to lists_path, notice: 'Gift was successfully destroyed.', status: :see_other
+    @gift = authorize Gift.find(params[:id])
+    @gift.destroy
+    redirect_to list_path(@gift.list, query: @gift.list.code), notice: 'Gift was successfully destroyed.', status: :see_other
+    #  redirect_to lists_path, notice: 'Gift was successfully destroyed.', status: :see_other
   end
 
   def add_assignee_email
@@ -76,7 +77,11 @@ class GiftsController < ApplicationController
   private
 
   def set_gift
-    @gift = Gift.find(params[:id])
+    if Gift.find_by(id: params[:id])
+      @gift = Gift.find(params[:id])
+    else
+      @gift = UserGiftRecomendation.find(params[:recommendation_id])
+    end
   end
 
   def gift_params
