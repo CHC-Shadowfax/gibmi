@@ -13,7 +13,7 @@
             <div class="col-12-center">
               <div class="show-block">
                 <h1 class="font-weight-bold text-center"><%= @post.title %></h1>
-                <p class="text-right">
+                <p class="text-center">
                   <small> <span class= "font-weight-bold">Viewed
                       <%= @post.views_count %> times </span> | Created On: <%= @post.event_date %>
                   </small>
@@ -22,9 +22,9 @@
                   <%= image_tag @post.photo.url, :size => "288x177" %>
                 </div>
                 <div class="pt-3 text-justify text-md-left">
-                  <p>
+                  <p2>
                     <%= @post.content %>
-                  </p>
+                  </p2>
                 </div>
               </div>
             </div>
