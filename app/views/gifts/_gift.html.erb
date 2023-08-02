@@ -2,17 +2,31 @@
   <div class="card mb-3">
     <div class="row g-0">
       <div class="col-md-4">
-        <div class="ms-4 mt-2"> <%= cl_image_tag gift.photo.key, :size => "288x177" %> </div>
+        <% if gift.class == UserGiftRecomendation %>
+          <div class="ms-4 mt-2"> <%= image_tag gift.image, :size => "288x177" %> </div>
+        <% else %>
+          <div class="ms-4 mt-2"> <%= cl_image_tag gift.photo.key, :size => "288x177" %> </div>
+        <% end %>
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <div id="gift-title"><%= gift.name %></div>
-          <p id="gift-description"><%= gift.description %></p>
-          <p id="gift-size"><strong>Specifications: </strong><%= gift.size %></p>
-          <p id="gift-url"> <strong>Find it at: </strong><%= gift.address %></p>
+          <p id="gift-description"><strong>Description: </strong><%= gift.description %></p>
+          <% if gift.class == UserGiftRecomendation %>
+            <div class="recommendation-description"><strong>Find your gift here:</strong>
+              <% gift.purchase_places.split(", ").each do |rec| %>
+                <%= link_to ensure_https(rec), ensure_https(rec), target:"_blank" %>
+              <% end %>
+            </div>
+          <% else %>
+            <p id="gift-size"><strong>Specifications: </strong><%= gift.size %></p>
+          <% end %>
+          <% if gift.class != UserGiftRecomendation %>
+            <p id="gift-url"> <strong>Find it at: </strong><%= gift.address %></p>
+          <% end %>
           <!-- Button trigger modal -->
           <% if gift.has_assignee? %>
-            <h1>This Gift has already been claimed. Go back to the list to see more gifts!</h1>
+            <h4>This Gift has already been claimed. Go back to the list to see more gifts!</h4>
           <% else %>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Assign me this gift!

@@ -19,5 +19,4 @@ class EbayApi
     # Accessing the first product's galleryURL
     json_response['findItemsByKeywordsResponse'][0]['searchResult'][0]['item'][0]
   end
-
 end

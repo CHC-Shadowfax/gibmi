@@ -1,4 +1,4 @@
-<div>
+<div class="text-center p-3">
   <% if current_user && @gift.list.user_id == current_user.id %>
     <%= link_to edit_gift_path(@gift) do %>
       <i class="fa-regular fa-pen-to-square" style="color: #D0BDF4;"></i>

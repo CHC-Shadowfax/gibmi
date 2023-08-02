@@ -19,6 +19,14 @@ class UserGiftRecomendationPolicy < ApplicationPolicy
     user.present? && (record.user == user || user.admin?)
   end
 
+  def add_assignee_email?
+    !record.has_assignee?
+  end
+
+  def add_assignee?
+    !record.has_assignee?
+  end
+
   private
 
   def post
