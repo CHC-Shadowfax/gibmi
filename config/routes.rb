@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :gifts, except: [:index]
   patch 'gifts/:id/assignee_email', to: "gifts#add_assignee_email", as: :add_assignee_email
   patch 'gifts/:id/assignee', to: "gifts#add_assignee", as: :add_assignee
+  patch 'gifts/:id/assignee_email_recommendation', to: "recommendations#add_assignee_email", as: :add_assignee_email_recommendation
+  patch 'gifts/:id/assignee_recommendation', to: "recommendations#add_assignee", as: :add_assignee_recommendation
   resources :posts
   resources :recommendations, only: [:index, :show, :update] do
     collection do

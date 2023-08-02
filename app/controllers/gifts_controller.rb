@@ -11,7 +11,8 @@ class GiftsController < ApplicationController
   end
 
   def show
-    @gift = authorize Gift.find_by(id: params[:id])
+    @gift = UserGiftRecomendation.find(params[:recommendation_id]) if params[:recommendation_id]
+    authorize @gift
   end
 
   def create
@@ -38,7 +39,8 @@ class GiftsController < ApplicationController
 
   def destroy
     authorize @gift.destroy
-    redirect_to list_path(@gift.list, query: @gift.list.code), notice: 'Gift was successfully destroyed.', status: :see_other
+    # redirect_to list_path(@gift.list, query: @gift.list.code), notice: 'Gift was successfully destroyed.', status: :see_other
+     redirect_to lists_path, notice: 'Gift was successfully destroyed.', status: :see_other
   end
 
   def add_assignee_email

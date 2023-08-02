@@ -1,9 +1,21 @@
-<div class="gift-img"> <%= image_tag recommendation.image %> </div>
-<div class="gift-info-container">
-  <div id="gift-title"><%= recommendation.name %></div>
-  <p id="gift-description"><%= recommendation.description.truncate(180) %></p>
-  <div class="recommendation-description">
-    <% @recommendation.purchase_places.split(", ").each do |rec| %>
-      <%= link_to ensure_https(rec), ensure_https(rec), target:"_blank" %>
-    <% end %>
+<section class="card-recommendation container p-5">
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <div class="ms-4 mt-2"> <%= image_tag recommendation.image, :size => "288x177" %> </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <div id="reco-title"><%= recommendation.name %></div>
+          <p id="reco-description"><strong>Description:</strong><%= recommendation.description.truncate(180) %></p>
+          <div class="recommendation-description"><strong>Find your gift here:</strong>
+            <% @recommendation.purchase_places.split(", ").each do |rec| %>
+              <%= link_to ensure_https(rec), ensure_https(rec), target:"_blank" %>
+            <% end %>
+            <%= render "add_rec_form" %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</section>

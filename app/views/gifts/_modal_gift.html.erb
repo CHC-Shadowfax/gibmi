@@ -1,7 +1,9 @@
+<% assignee_path = @gift.class == UserGiftRecomendation ? add_assignee_recommendation_path(@gift) : add_assignee_path(@gift) %>
+<% assignee_email_path = @gift.class == UserGiftRecomendation ? add_assignee_email_recommendation_path(@gift) : add_assignee_email_path(@gift) %>
 <div class="modal-dialog">
   <% if current_user %>
     <%# patch 'gifts/:id/assignee', to: "gifts#add_assignee", as: :add_assignee %>
-    <%= simple_form_for @gift, url: add_assignee_path(@gift), method: :patch do |f| %>
+    <%= simple_form_for @gift, url: assignee_path, method: :patch do |f| %>
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure you want to give this gift?</h1>
@@ -24,7 +26,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for @gift, url: add_assignee_email_path(@gift), method: :patch do |f| %>
+        <%= simple_form_for @gift, url: assignee_email_path , method: :patch do |f| %>
           <%= f.input :assignee_email, label: false, placeholder: "Enter your email address" %>
           <%= f.button :submit, "I want to give this gift!", class: "btn btn-primary" %>
         <% end %>

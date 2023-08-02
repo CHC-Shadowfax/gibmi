@@ -5,31 +5,38 @@
 </section>
 <!--segundo container buttons -->
 <section class="container2">
-  <div class="container">
-    <div class="row">
-      <div class="col-6 text-center">
-        <div id="create"><%= link_to new_list_path do %>
-            <i class="fa-solid fa-circle-plus" style="color: #5c3d8e;"> New list</i>
-          <% end %>
+  <% if user_signed_in? %>
+    <div class="container">
+      <div class="row">
+        <div class="col-6 text-center">
+          <div id="create"><%= link_to new_list_path do %>
+              <i class="fa-solid fa-circle-plus" style="color: #5c3d8e;"> New list</i>
+            <% end %>
+          </div>
         </div>
-      </div>
-      <div class="col-6 text-center">
-        <div id="see"><%= link_to lists_path do%>
-            <i class="fa-solid fa-list-ul" style="color: #5c3d8e;"> View lists</i>
-          <% end %>
+        <div class="col-6 text-center">
+          <div id="see"><%= link_to lists_path do%>
+              <i class="fa-solid fa-list-ul" style="color: #5c3d8e;"> View lists</i>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <% else %>
+    <div class="container">
+      <h5 class="text-center"> Don't want the same Gift again? <%= link_to "Sign Up Now", new_user_registration_path %>  </h5>
+      <h5 class="text-center"> Let chatGPT give you Gift Recommendations!</h5>
+    </div>
+  <% end %>
 </section>
 <!--cuarto container AI example -->
 <section class="container4">
   <div class="container">
     <div class="row text-align-center text-center">
       <div class="col-5 cardai">
-        <h1>AI Example</h1>
+        <h1>What do you like?</h1>
         <i class="fa-solid fa-user"></i>
-        <h3 class="p-2">User Categories:</h3>
+        <h3 class="p-2"></h3>
         <ul>
           <li>Sports</li>
           <li>Books</li>
@@ -41,7 +48,7 @@
       </div>
       <div class="col-5 cardai">
         <%= link_to recommendations_path do %>
-          <h1>Need help? Here are some gift ideas for you!</h1>
+          <h1>ChatGPT gibMi some ideas!</h1>
           <i class="fa-solid fa-globe"></i>
         </div>
       <% end %>

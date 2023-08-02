@@ -2,7 +2,7 @@
   <%= f.input :name, placeholder: ' Name your gift!' %>
   <%= f.input :description, placeholder: 'Add description' %>
   <%= f.input :size, placeholder: 'Specifications: Size, Color, etc...' %>
-  <%= f.input :list_id, as: :select, collection: List.all %>
+  <%= f.input :list_id, as: :select, collection: current_user.lists %>
   <%= f.input :url, placeholder: 'website' %>
   <%= f.input :photo, as: :file, placeholder: 'Add photo' %>
   <%= f.input :address, input_html: { id: 'pac-input' }%>
