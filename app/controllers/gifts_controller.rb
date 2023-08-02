@@ -11,7 +11,7 @@ class GiftsController < ApplicationController
   end
 
   def show
-    @gift = UserGiftRecomendation.find(params[:recommendation_id]) if params[:recommendation_id]
+    # @gift = UserGiftRecomendation.find(params[:recommendation_id]) if params[:recommendation_id]
     authorize @gift
   end
 
@@ -47,8 +47,14 @@ class GiftsController < ApplicationController
   def add_assignee_email
     @gift = Gift.find(params[:id])
     authorize @gift
-    @gift.update!(gift_params)
-    redirect_to lists_path(query: @gift.list.code), notice: 'Gift was successfully assigned, please create an account for more features', status: :see_other
+    lista = List.find(@gift.list_id)
+    user_lista = User.find(lista.user_id)
+    if user_lista.email == params[:gift][:assignee_email]
+      @gift.errors.add(:base, "You can't assign a gift to yourself")
+    else
+      @gift.update!(gift_params)
+      redirect_to lists_path(query: @gift.list.code), notice: 'Gift was successfully assigned, please create an account for more features', status: :see_other
+    end
   end
 
   def add_assignee

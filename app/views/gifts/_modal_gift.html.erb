@@ -29,6 +29,7 @@
         <%= simple_form_for @gift, url: assignee_email_path , method: :patch do |f| %>
           <%= f.input :assignee_email, label: false, placeholder: "Enter your email address" %>
           <%= f.button :submit, "I want to give this gift!", class: "btn btn-primary" %>
+          <%= @gift.errors[:assignee_email] %>
         <% end %>
       </div>
       <div class="modal-footer">
