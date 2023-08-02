@@ -1,7 +1,7 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "gibmi.com.mx" }
+  config.action_mailer.default_url_options = { host: "gibmi-738fa564836b.herokuapp.com" }
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.action_mailer.delivery_method = :smtp
