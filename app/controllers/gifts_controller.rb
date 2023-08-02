@@ -77,7 +77,11 @@ class GiftsController < ApplicationController
   private
 
   def set_gift
-    @gift = Gift.find(params[:id])
+    if Gift.find_by(id: params[:id])
+      @gift = Gift.find(params[:id])
+    else
+      @gift = UserGiftRecomendation.find(params[:recommendation_id])
+    end
   end
 
   def gift_params
