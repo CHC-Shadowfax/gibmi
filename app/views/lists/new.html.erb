@@ -1,4 +1,10 @@
-<div class="container shadow border mt-5 p-3 w-50">
-  <h1 class="text-center"><strong>Create a new List</strong> </h1>
-  <%= render 'form', list: @list%>
+<div class="container p-3">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="container p-5 rounded shadow p-3 mb-5 bg-body rounded">
+        <h1 class="text-center"><strong>Create a List</strong> </h1>
+        <%= render 'form', list: @list%>
+      </div>
+    </div>
+  </div>
 </div>
