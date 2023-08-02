@@ -73,6 +73,10 @@ class GiftsController < ApplicationController
     redirect_to lists_path, notice: 'Gift was successfully unassigned', status: :see_other
   end
 
+  def assigned_gifts
+    @gifts = Gift.find_by(assignee_email: current_user.email)
+  end
+
   # def add_to_list
   #   @gift = Gift.find(params[:id])
   #   @gift.list = List.find(params[:list_id])
