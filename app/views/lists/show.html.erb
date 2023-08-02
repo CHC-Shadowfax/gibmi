@@ -31,6 +31,11 @@
       <canvas id="qrcode"></canvas>
     </div>
   </div>
+  <% if current_user && @list.user_id == current_user.id %>
+    <a href="javascript:getlink();">
+      <i class="fa-regular fa-copy" style="color: #D0BDF4;"></i>
+    </a>
+  <% end %>
 </div>
 <div class="gifts-container">
   <% @list.gifts.each do |gift|%>
@@ -80,4 +85,16 @@
     e.preventDefault();
     modal.classList.remove("active");
   });
+
+  function getlink() {
+  var aux = document.createElement("input");
+
+  aux.setAttribute("value", window.location.href);
+  document.body.appendChild(aux);
+  aux.select();
+  document.execCommand("copy");
+  document.body.removeChild(aux);
+  alert("URL copiada al portapapeles\n\n" + window.location.href);
+  }
+
 </script>

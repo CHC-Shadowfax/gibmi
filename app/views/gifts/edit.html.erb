@@ -4,9 +4,8 @@
       <div class="container p-5 rounded">
         <h1><strong>Edit this gift</strong> </h1>
           <%= render 'simple_form', gift: @gift %>
-          <%= link_to "Back to list", list_path, class: "btn btn-link link-dark" %>
+          <%= link_to "Back to list", list_path(@gift.list, query:@gift.list.code), class: "btn btn-link link-dark" %>
         </div>
     </div>
   </div>
 </div>
-

@@ -15,7 +15,7 @@ class EbayApi
     @options[:query]['keywords'] = keywords
     response = self.class.get('/services/search/FindingService/v1', @options)
     json_response = JSON.parse(response.body)
-    # puts "json_response: #{json_response}"
+    puts json_response
     # Accessing the first product's galleryURL
     json_response['findItemsByKeywordsResponse'][0]['searchResult'][0]['item'][0]
   end

@@ -1,6 +1,9 @@
-<h1 class="p-3">Find some gift ideas!</h1>
-<div class="container">
-  <h4><%= link_to 'Generate recommendations', generate_recommendations_path %></h4>
+<h1>Find some gift ideas!</h1>
+<div>
+  <%= link_to generate_recommendations_path do %>
+    <i class="fa-solid fa-rotate" style="color: #D0BDF4;"></i>
+  <% end %>
+  <%= link_to 'chatGPT help me!', generate_recommendations_path %>
 </div>
 <div class="gifts-container">
   <% @recommendations.each do |r| %>
