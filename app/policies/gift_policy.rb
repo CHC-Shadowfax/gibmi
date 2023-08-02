@@ -7,6 +7,10 @@ class GiftPolicy < ApplicationPolicy
     true
   end
 
+  def edit?
+    true
+  end
+
   def new?
     true
   end

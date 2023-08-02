@@ -19,7 +19,7 @@ class ListsController < ApplicationController
     if user_signed_in?
       @list = List.find(params[:id])
     end
-    @list = List.find_by(code: params[:query])
+    @list = List.find_by(code: params[:query  ])
 
     if @list.nil?
       redirect_to lists_path
