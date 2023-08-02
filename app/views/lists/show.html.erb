@@ -1,7 +1,7 @@
 <div class= "list-container p-3">
-  <h1 class="list-name-container"> <%= @list.name %> list </h1>
-  <p><%= @list.event_date %></p>
-  <p><%= @list.description %></p>
+  <h1 class="list-name-container"> <%= @list.name %> List </h1>
+  <p>Event Date: <%= @list.event_date %></p>
+  <p>Description: <%= @list.description %></p>
 </div>
 <div class= "actions-container-list-show">
   <% if current_user && @list.user_id == current_user.id %>

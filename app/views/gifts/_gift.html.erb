@@ -11,7 +11,7 @@
       <div class="col-md-8">
         <div class="card-body">
           <div id="gift-title"><%= gift.name %></div>
-          <p id="gift-description"><%= gift.description %></p>
+          <p id="gift-description"><strong>Description: </strong><%= gift.description %></p>
           <% if gift.class == UserGiftRecomendation %>
             <div class="recommendation-description"><strong>Find your gift here:</strong>
               <% gift.purchase_places.split(", ").each do |rec| %>
@@ -26,7 +26,7 @@
           <% end %>
           <!-- Button trigger modal -->
           <% if gift.has_assignee? %>
-            <h1>This Gift has already been claimed. Go back to the list to see more gifts!</h1>
+            <h4>This Gift has already been claimed. Go back to the list to see more gifts!</h4>
           <% else %>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Assign me this gift!

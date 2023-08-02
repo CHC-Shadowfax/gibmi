@@ -1,6 +1,6 @@
 <div class= "list-index-container">
   <% if @lists.count == 0 %>
-    <h1>Create a list!</h1>
+    <h2 class="container p-3">Sign Up and Create your First List!</h2>
   <% else %>
     <%= render 'shared/lists_card', lists: @lists %>
   <% end %>
