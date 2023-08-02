@@ -24,4 +24,5 @@ Rails.application.routes.draw do
       get :generate
     end
   end
+  get 'assigned_gifts', to: 'gifts#assigned_gifts'
 end
