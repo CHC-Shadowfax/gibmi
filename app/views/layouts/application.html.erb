@@ -9,7 +9,6 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
     <%= favicon_link_tag "favbr.png", rel: "icon", type: "image/png" %>
-
     <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKKmKU31CVKKl88v1lw_BqkIXhRKC-3Ro&libraries=places"></script>
   </head>
@@ -17,16 +16,12 @@
     <header>
       <%= render "shared/navbar" %>
     </header>
-
     <main class="contenedor-main">
       <%= yield %>
     </main>
-
     <footer>
       <%= render "shared/footer" %>
-      <%# <%= render "shared/flashes" %> %> %>
+      <%= render "shared/flashes" %>
     </footer>
-
-
   </body>
 </html>
