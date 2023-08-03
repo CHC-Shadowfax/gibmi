@@ -51,6 +51,8 @@ class GiftsController < ApplicationController
     user_lista = User.find(lista.user_id)
     if user_lista.email == params[:gift][:assignee_email]
       @gift.errors.add(:base, "You can't assign a gift to yourself")
+      
+      # render 'gifts/show', status: :unprocessable_entity
     else
       @gift.update!(gift_params)
       redirect_to lists_path(query: @gift.list.code), notice: 'Gift was successfully assigned, please create an account for more features', status: :see_other
