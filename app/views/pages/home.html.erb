@@ -8,15 +8,21 @@
   <% if user_signed_in? %>
     <div class="container">
       <div class="row">
-        <div class="col-6 text-center">
+        <div class="col-4 text-center">
           <div id="create"><%= link_to new_list_path do %>
               <i class="fa-solid fa-circle-plus" style="color: #5c3d8e;"> New list</i>
             <% end %>
           </div>
         </div>
-        <div class="col-6 text-center">
+        <div class="col-4 text-center">
           <div id="see"><%= link_to lists_path do%>
               <i class="fa-solid fa-list-ul" style="color: #5c3d8e;"> View lists</i>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-4 text-center">
+          <div id="see"><%= link_to assigned_gifts_path do%>
+              <i class="fa-solid fa-gift" style="color: #5c3d8e;"> Assigned gifts</i>
             <% end %>
           </div>
         </div>

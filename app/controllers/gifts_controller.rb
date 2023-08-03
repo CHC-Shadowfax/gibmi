@@ -65,7 +65,6 @@ class GiftsController < ApplicationController
     redirect_to lists_path, notice: 'Gift was successfully assigned', status: :see_other
   end
 
-
   def remove_assignee
     @gift = Gift.find(params[:id])
     @gift.user = nil
@@ -74,7 +73,8 @@ class GiftsController < ApplicationController
   end
 
   def assigned_gifts
-    @gifts = Gift.find_by(assignee_email: current_user.email)
+    @gifts = Gift.where(assignee_email: current_user.email)
+    authorize @gifts
   end
 
   # def add_to_list

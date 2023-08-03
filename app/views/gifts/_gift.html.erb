@@ -28,10 +28,10 @@
           <% if gift.has_assignee? %>
             <h4>This Gift has already been claimed. Go back to the list to see more gifts!</h4>
           <% else %>
-          <% user_list = List.find(gift.list_id) %>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Assign me this gift!
-              </button>
+            <% user_list = List.find(gift.list_id) %>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Assign me this gift!
+            </button>
           <% end %>
         </div>
       </div>
@@ -42,4 +42,3 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <%= render 'modal_gift', gift: @gift %>
 </div>
-<%= console %>
