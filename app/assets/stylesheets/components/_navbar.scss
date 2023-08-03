@@ -91,8 +91,18 @@
   vertical-align: middle;
 }
 
-input,
-button {
+// input,
+// button {
+//   color: #fff;
+//   font-family: Nunito;
+//   padding: 0;
+//   margin: 0;
+//   border: 0;
+//   background-color: transparent;
+// }
+
+.s_input,
+.s_button {
   color: #fff;
   font-family: Nunito;
   padding: 0;
@@ -120,14 +130,25 @@ button {
 //   height: auto;
 // }
 
-input[type="text"] {
+// input[type="text"] {
+//   width: 100%;
+//   height: auto;
+//   font-size: 24px;
+//   line-height: 1;
+// }
+
+// input[type="text"]::placeholder {
+//   color: #fff;
+// }
+
+.s_input[type="text"] {
   width: 100%;
   height: auto;
   font-size: 24px;
   line-height: 1;
 }
 
-input[type="text"]::placeholder {
+.s_input[type="text"]::placeholder {
   color: #fff;
 }
 
