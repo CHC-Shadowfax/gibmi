@@ -41,4 +41,5 @@
 .DS_Store
 .env*
 .env*
-dumb.rdb
+dump.rdb
+.env*

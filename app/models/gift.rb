@@ -6,9 +6,8 @@ class Gift < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :photo, presence: true
-  validates :address, presence: true
-
+  # validates :photo, presence: true
+  # validates :address, presence: true
 
   def has_email?
     assignee_email.present?
@@ -21,4 +20,5 @@ class Gift < ApplicationRecord
   def has_assignee?
     has_email? || has_user?
   end
+
 end

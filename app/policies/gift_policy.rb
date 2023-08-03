@@ -31,6 +31,10 @@ class GiftPolicy < ApplicationPolicy
     !record.has_assignee?
   end
 
+  def assigned_gifts?
+    true
+  end
+
   def destroy?
     true
     # record.user == user

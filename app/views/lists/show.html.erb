@@ -43,10 +43,15 @@
       <div class="gift">
         <% if gift.photo.attached? %>
           <%=cl_image_tag gift.photo.key %>
+        <% else %>
+          <%= image_tag 'gift.png' %>
         <% end %>
         <div class="card-container">
           <h5 class="card_title"><%=gift.name%></h5>
           <i class="card_size"><%=gift.size%></i>
+          <% if gift.assignee_email %>
+          <p>Asignado</p>
+          <% end %>
         </div>
       </div>
     <% end %>

@@ -10,8 +10,8 @@ class ListsController < ApplicationController
     if user_signed_in? && !params[:query].present?
       @lists = policy_scope(List).where(user: current_user)
     else
-      @lists = policy_scope(List).search_by_code_or_user_email(params[:query])
-      redirect_to list_path(@lists.first, query: params[:query]) if @lists.count == 1
+      @lists = policy_scope(List.search_by_code_or_user_email(params[:query]))
+      # redirect_to list_path(@lists.first, query: params[:query]) if @lists.count == 1
     end
   end
 
