@@ -1,5 +1,5 @@
-<div class="card rounded-3" style="width: 19rem;">
   <% gifts.each do |gift| %>
+  <div class="card rounded-3" style="width: 19rem;">
     <%= link_to gift_path(gift.id) do %>
       <div class="card-img-top ms-2"> <%= image_tag gift.photo, :size => "288x177" %> </div>
       <div class="card-body">
@@ -11,5 +11,5 @@
         <p><strong>Days until event: </strong><%= (gift.list.event_date - Date.today).to_i %> days</p>
       </div>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>

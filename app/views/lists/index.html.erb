@@ -1,13 +1,15 @@
-<div class= "list-index-container">
-  <% if @lists.count == 0 %>
-    <h2 class="container p-3">Sign Up and Create your First List!</h2>
-  <% else %>
-    <%= render 'shared/lists_card', lists: @lists %>
-  <% end %>
-  <div class= "actions-container">
+<h1 class="p-3 text-center">Lists</h1>
+<div class="container">
+  <div class= "add-list-button">
     <%= link_to new_list_path do %>
       <i class="fa-solid fa-circle-plus" style="color: #D0BDF4;"></i>
     <% end %>
     <i id="add"><%= link_to "Add list", new_list_path %></i>
   </div>
-</div>
+  <div class= "list-index-container">
+    <% if @lists.count == 0 %>
+      <h2 class="container p-3">Sign Up and Create your First List!</h2>
+    <% else %>
+      <%= render 'shared/lists_card', lists: @lists %>
+    <% end %>
+  </div>
