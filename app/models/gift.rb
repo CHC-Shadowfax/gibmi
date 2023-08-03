@@ -6,9 +6,8 @@ class Gift < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :photo, presence: true
-  validates :address, presence: true
-  # validate :autoregalo
+  # validates :photo, presence: true
+  # validates :address, presence: true
 
   def has_email?
     assignee_email.present?
