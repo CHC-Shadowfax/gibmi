@@ -4,8 +4,12 @@
       <div class="col-md-4">
         <% if gift.class == UserGiftRecomendation %>
           <div class="ms-4 mt-2"> <%= image_tag gift.image, :size => "288x177" %> </div>
+          <% else %>
+          <% if gift.photo.attached %>
+            <div class="ms-4 mt-2"> <%= cl_image_tag gift.photo.key, :size => "288x177" %> </div>
         <% else %>
-          <div class="ms-4 mt-2"> <%= cl_image_tag gift.photo.key, :size => "288x177" %> </div>
+            <div class="ms-4 mt-2"> <%= image_tag 'gift.png', :size => "288x177" %> </div>
+          <% end %>
         <% end %>
       </div>
       <div class="col-md-8">
