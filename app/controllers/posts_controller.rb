@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
     @posts = policy_scope(Post.page(params[:page]).per(4))
