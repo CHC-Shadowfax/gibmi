@@ -24,7 +24,18 @@ h1  {
   }
 
   a {
-    font-weight: normal;
+    font-weight: bold;
+    color: $light-gray-2;
+  }
+
+  a:hover {
+    color: $purple;
+  }
+
+  @media (max-width: 575.98px) {
+
+    height: 100px;
+
   }
 
  }
@@ -55,6 +66,7 @@ h1  {
   ul {
     list-style: none;
   }
+
   ul li::before {
     content: "•";
     color: $purple;
@@ -62,6 +74,7 @@ h1  {
     display: inline-block;
     width: 15px;
   }
+
 
   i {
     color: $purple;
@@ -86,6 +99,10 @@ h1  {
     a {
       text-decoration: none;
     }
+  }
+
+  .container-likes{
+    width: 150px;
   }
 
   @media (max-width: 575.98px) {
@@ -290,15 +307,16 @@ h1  {
       display: flex;
       justify-content: center;
       flex-direction: column;
-      height: 500px;
+      height: 360px;
       width: 500px;
+      padding: 0px;
     }
 
     .list1 {
       display: flex;
       justify-content: center;
       flex-direction: column;
-      height: 500px;
+      height: 360px;
       width: 500px;
     }
 
@@ -337,5 +355,10 @@ h1  {
       border: none;
       font-size: 15px;
       font-weight: bold;
+    }
+
+    @media (max-width: 575.98px) {
+
+      padding: 10px;
     }
  }

@@ -1,17 +1,19 @@
+<section class="reco-card-2">
   <% gifts.each do |gift| %>
-  <div class="card rounded-3" style="width: 19rem;">
-    <%= link_to gift_path(gift.id) do %>
-      <% if gift.photo.attached? %>
-        <div class="card-img-top ms-2"> <%= image_tag gift.photo, :size => "288x177" %> </div>
+    <div class="card rounded-3" style="width: 19rem;">
+      <%= link_to gift_path(gift.id) do %>
+        <% if gift.photo.attached? %>
+          <div class="card-img-top ms-2"> <%= image_tag gift.photo, :size => "288x177" %> </div>
+        <% end %>
+        <div class="card-body">
+          <div class="text-center mb-2" style="color: #5c3d8e"><strong><%= gift.name %></strong></div>
+          <p id="gift-size"><strong>Specifications: </strong><%= gift.size %></p>
+          <p><strong>List Name: </strong><%= gift.list.name %></p>
+          <p><strong>Gift Owner: </strong><%= User.find(gift.list.user_id).email %></p>
+          <p><strong>Event Date: </strong><%= gift.list.event_date %></p>
+          <p><strong>Days until event: </strong><%= (gift.list.event_date - Date.today).to_i %> days</p>
+        </div>
       <% end %>
-      <div class="card-body">
-        <div class="text-center mb-2" style="color: #5c3d8e"><strong><%= gift.name %></strong></div>
-        <p id="gift-size"><strong>Specifications: </strong><%= gift.size %></p>
-        <p><strong>List Name: </strong><%= gift.list.name %></p>
-        <p><strong>Gift Owner: </strong><%= User.find(gift.list.user_id).email %></p>
-        <p><strong>Event Date: </strong><%= gift.list.event_date %></p>
-        <p><strong>Days until event: </strong><%= (gift.list.event_date - Date.today).to_i %> days</p>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+    </div>
+  <% end %>
+</section>
