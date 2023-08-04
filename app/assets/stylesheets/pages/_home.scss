@@ -27,6 +27,13 @@ h1  {
     font-weight: normal;
   }
 
+  @media (max-width: 575.98px) {
+
+    .nosignin {
+      height: 300px;
+    }
+  }
+
  }
 
 

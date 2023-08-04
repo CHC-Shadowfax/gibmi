@@ -29,8 +29,9 @@
       </div>
     </div>
   <% else %>
-    <div class="container">
-      <h5 class="text-center"> Don't want the same Gift again? <%= link_to "Sign Up Now", new_user_registration_path %>  </h5>
+    <div class="container nosignin">
+      <h5 class="text-center"> Don't want the same Gift again?
+        <%= link_to "Sign Up Now", new_user_registration_path %>  </h5>
       <h5 class="text-center"> Let chatGPT give you Gift Recommendations!</h5>
     </div>
   <% end %>
