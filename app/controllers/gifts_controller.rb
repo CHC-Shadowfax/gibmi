@@ -1,5 +1,5 @@
 class GiftsController < ApplicationController
-  before_action :set_gift, only: %i[show edit update destroy]
+  before_action :set_gift, only: %i[show]
   skip_before_action :authenticate_user!, only: [:show, :add_assignee_email, :add_assignee]
 
   def index
@@ -11,7 +11,7 @@ class GiftsController < ApplicationController
   end
 
   def show
-    @gift = UserGiftRecomendation.find(params[:recommendation_id]) if params[:recommendation_id]
+    # @gift = UserGiftRecomendation.find(params[:recommendation_id]) if params[:recommendation_id]
     authorize @gift
   end
 
@@ -38,16 +38,25 @@ class GiftsController < ApplicationController
   end
 
   def destroy
-    authorize @gift.destroy
-    # redirect_to list_path(@gift.list, query: @gift.list.code), notice: 'Gift was successfully destroyed.', status: :see_other
-     redirect_to lists_path, notice: 'Gift was successfully destroyed.', status: :see_other
+    @gift = authorize Gift.find(params[:id])
+    @gift.destroy
+    redirect_to list_path(@gift.list, query: @gift.list.code), notice: 'Gift was successfully destroyed.', status: :see_other
+    #  redirect_to lists_path, notice: 'Gift was successfully destroyed.', status: :see_other
   end
 
   def add_assignee_email
     @gift = Gift.find(params[:id])
     authorize @gift
-    @gift.update!(gift_params)
-    redirect_to lists_path(query: @gift.list.code), notice: 'Gift was successfully assigned, please create an account for more features', status: :see_other
+    lista = List.find(@gift.list_id)
+    user_lista = User.find(lista.user_id)
+    if user_lista.email == params[:gift][:assignee_email]
+      @gift.errors.add(:base, "You can't assign a gift to yourself")
+      
+      # render 'gifts/show', status: :unprocessable_entity
+    else
+      @gift.update!(gift_params)
+      redirect_to lists_path(query: @gift.list.code), notice: 'Gift was successfully assigned, please create an account for more features', status: :see_other
+    end
   end
 
   def add_assignee
@@ -58,12 +67,16 @@ class GiftsController < ApplicationController
     redirect_to lists_path, notice: 'Gift was successfully assigned', status: :see_other
   end
 
-
   def remove_assignee
     @gift = Gift.find(params[:id])
     @gift.user = nil
     @gift.save
     redirect_to lists_path, notice: 'Gift was successfully unassigned', status: :see_other
+  end
+
+  def assigned_gifts
+    @gifts = Gift.where(assignee_email: current_user.email)
+    authorize @gifts
   end
 
   # def add_to_list
@@ -76,7 +89,11 @@ class GiftsController < ApplicationController
   private
 
   def set_gift
-    @gift = Gift.find(params[:id])
+    if Gift.find_by(id: params[:id])
+      @gift = Gift.find(params[:id])
+    else
+      @gift = UserGiftRecomendation.find(params[:recommendation_id])
+    end
   end
 
   def gift_params

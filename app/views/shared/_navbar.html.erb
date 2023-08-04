@@ -3,13 +3,9 @@
     <%= link_to root_path, class: "navbar-brand" do %>
       <div class= "gibmi-logo"> </div>
     <% end %>
-
-
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse navbar-desktop-left" id="navbarSupportedContent">
       <div id="cover" >
         <%= form_with url: lists_path, method: :get, class: "form-inline" do %>
@@ -22,55 +18,48 @@
                 %>
             </div>
             <%#= submit_tag "RESULTS", name: "", class: "btn btn-primary my-2 my-sm-0" do %>
-            <div class="td" id="s-cover">
-              <button type="submit" id="search-btn">
+              <div class="td" id="s-cover">
+                <button type="submit" id="search-btn">
                   <div id="s-circle"></div>
                   <span></span>
-              </button>
+                </button>
+              </div>
+              <%# <%= button_tag type: 'submit' do %>
+                <%# <i class="fa fa-search"></i> %>
+                <%# <% end %>
+              <% end %>
             </div>
-
-            <%# <%= button_tag type: 'submit' do %>
-              <%# <i class="fa fa-search"></i> %>
-            <%# <% end %>
-          <% end %>
+          </div>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <%= link_to "Blog", posts_path, class: "nav-link" %>
+            </li>
+            <% if user_signed_in? %>
+              <li class="nav-item active">
+                <%= link_to "Home", root_path, class: "nav-link"  %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "My lists", lists_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item dropdown">
+                <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <% if current_user.photo.attached? %>
+                    <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
+                  <% else %>
+                    <%= image_tag("https://res.cloudinary.com/dgeduaopr/image/upload/v1688236031/avatar.avif", class: "avatar", alt: "dropdown menu") %>
+                  <% end %>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
+                  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+                </div>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Login or Sign up", new_user_session_path, remote: true, class: "nav-link" %>
+              </li>
+            <% end %>
+          </ul>
         </div>
       </div>
-
-      <ul class="navbar-nav">
-        <li class="nav-item">
-            <%= link_to "Blog", posts_path, class: "nav-link" %>
-          </li>
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link"  %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "My lists", lists_path, class: "nav-link" %>
-          </li>
-
-
-
-
-
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
-            <% else %>
-              <%= image_tag("https://res.cloudinary.com/dgeduaopr/image/upload/v1688236031/avatar.avif", class: "avatar", alt: "dropdown menu") %>
-            <% end %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login or Sign up", new_user_session_path, remote: true, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
     </div>
-  </div>
-</div>

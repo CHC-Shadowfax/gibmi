@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :lists, dependent: :destroy
   has_many :user_gift_recomendations, dependent: :destroy
 
-  # after_create :generate_recommendations
+  after_create :generate_recommendations
   after_create :add_user_to_gifts
   after_create :add_user_to_gift_recommendations
 
