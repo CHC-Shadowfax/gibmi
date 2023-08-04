@@ -1,7 +1,7 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "gibmi-738fa564836b.herokuapp.com" }
+  config.action_mailer.default_url_options = { host: "https://gibmi-738fa564836b.herokuapp.com" }
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.action_mailer.delivery_method = :smtp
@@ -102,6 +102,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  # config.force_ssl = true
+  config.force_ssl = true
+
+  config.action_mailer.default_url_options = { host: 'https://www.gibmi.com.mx' }
 
 end

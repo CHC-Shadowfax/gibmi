@@ -77,7 +77,7 @@
 
   var qrCode = new QRious({
     element: canvas,
-    value: `<%= list_url(@list) %>`,
+    value: "<%= list_url(@list, query: @list.code) %>",
     size: 200
   });
 
