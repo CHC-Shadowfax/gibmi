@@ -22,7 +22,7 @@ class List < ApplicationRecord
 
   validates :name, presence: true
   validates :photo_id, presence: true
-  # valdiates :event_date, comparsion: { greater_than_or_equal_to: Date.today }
+  validate :current_date
 
   include PgSearch::Model
 
@@ -38,5 +38,11 @@ class List < ApplicationRecord
   def generate_code
     self.code = SecureRandom.hex(6)
     self.save
+  end
+
+  def current_date
+    if event_date.present? && event_date < Date.today
+      errors.add(:event_date, "can't be in the past")
+    end
   end
 end
