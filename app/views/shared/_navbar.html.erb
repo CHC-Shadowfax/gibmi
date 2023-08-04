@@ -13,13 +13,13 @@
             <div class="td">
               <%= text_field_tag :query,
                     params[:query],
-                    class: "td",
+                    class: "td s_input",
                     placeholder: "Give me a list!"
                 %>
             </div>
             <%#= submit_tag "RESULTS", name: "", class: "btn btn-primary my-2 my-sm-0" do %>
-              <div class="td" id="s-cover">
-                <button type="submit" id="search-btn">
+              <div class="td s_input" id="s-cover">
+                <button type="submit" id="search-btn" class="s_button">
                   <div id="s-circle"></div>
                   <span></span>
                 </button>
