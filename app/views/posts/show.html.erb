@@ -84,7 +84,7 @@
         </div>
       </div>
       <div class="btn-row">
-        <% if current_user.admin? %>
+        <% if user_signed_in? && current_user.admin? %>
           <p><%= link_to "Edit post", edit_post_path(@post),  class:"btn btn-primary" %></p>
           <div class="btn-row 2">
             <p><%= link_to "Delete post", @post, class:"btn btn-primary", method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
