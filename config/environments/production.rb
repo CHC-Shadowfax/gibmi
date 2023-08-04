@@ -104,7 +104,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  Rails.application.routes.default_url_options[:host] = 'www.gibmi.com.mx'
+  Rails.application.routes.default_url_options[:host] = 'https://www.gibmi.com.mx'
   config.force_ssl = true
 
 end
