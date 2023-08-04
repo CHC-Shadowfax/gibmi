@@ -1,7 +1,9 @@
   <% gifts.each do |gift| %>
   <div class="card rounded-3" style="width: 19rem;">
     <%= link_to gift_path(gift.id) do %>
-      <div class="card-img-top ms-2"> <%= image_tag gift.photo, :size => "288x177" %> </div>
+      <% if gift.photo.attached? %>
+        <div class="card-img-top ms-2"> <%= image_tag gift.photo, :size => "288x177" %> </div>
+      <% end %>
       <div class="card-body">
         <div class="text-center mb-2" style="color: #5c3d8e"><strong><%= gift.name %></strong></div>
         <p id="gift-size"><strong>Specifications: </strong><%= gift.size %></p>
