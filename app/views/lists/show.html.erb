@@ -28,7 +28,9 @@
   <div class="modal">
     <div class="model-container">
       <i class="fa-solid fa-xmark" id="close-modal" style="color: #D0BDF4;"></i>
-      <%= list_url(@list, query: @list.code) %>
+      <div class="p-url">
+        <%= list_url(@list, query: @list.code) %>
+      </div>
       <canvas id="qrcode"></canvas>
     </div>
   </div>

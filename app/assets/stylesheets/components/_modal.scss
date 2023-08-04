@@ -12,6 +12,23 @@
     text-align: center;
     background: white;
     border-radius: 10px;
+
+    .p-url {
+      display: none;
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 12px;
+      color: #780078;
+      z-index: 999;
+    }
+
+    &:hover {
+      .p-url {
+        display: block;
+      }
+    }
   }
 
   i {
