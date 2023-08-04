@@ -9,7 +9,7 @@
     <div class="container">
       <div class="row">
         <div class="col-4 text-center">
-          <div id="create"><%= link_to new_list_path do %>
+          <div id="see"><%= link_to new_list_path do %>
               <i class="fa-solid fa-circle-plus" style="color: #5c3d8e;"> New list</i>
             <% end %>
           </div>
@@ -30,9 +30,8 @@
     </div>
   <% else %>
     <div class="container nosignin">
-      <h5 class="text-center"> Don't want the same Gift again?
-        <%= link_to "Sign Up Now", new_user_registration_path %>  </h5>
       <h5 class="text-center"> Let chatGPT give you Gift Recommendations!</h5>
+      <p class="text-center"><%= link_to "Sign Up Now!", new_user_registration_path %></p>
     </div>
   <% end %>
 </section>
@@ -44,10 +43,10 @@
         <h1>What do you like?</h1>
         <i class="fa-solid fa-user"></i>
         <h3 class="p-2"></h3>
-        <ul>
-          <li>Sports</li>
-          <li>Books</li>
-          <li>Video Games</li>
+        <ul class="container-likes">
+          <li class="text-start">Sports</li>
+          <li class="text-start">Books</li>
+          <li class="text-start">Video Games</li>
         </ul>
       </div>
       <div class="col-2 icon2">
@@ -71,9 +70,9 @@
         <h2 class="p-2">It's Super Easy!</h2>
         <p class= "p-1"><i class="fa-solid fa-list-check"></i></p>
         <ul>
-          <li>Create a list</li>
-          <li>Add gifts through URL or Location</li>
-          <li>Share your list with friends and family</li>
+          <li class="text-start">Create a list</li>
+          <li class="text-start">Add gifts through URL or Location</li>
+          <li class="text-start">Share your list with friends and family</li>
         </ul>
       </div>
       <h3 class="mb-3"><%= link_to "Start now!", new_list_path, class:"btn btn-light btn-lg" %></h3>

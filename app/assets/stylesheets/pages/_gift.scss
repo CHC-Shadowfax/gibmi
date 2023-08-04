@@ -31,4 +31,13 @@
   h4 {
     color: $purple;
   }
+
+  @media (max-width: 575.98px) {
+
+    width: 90%;
+
+    .gift-img img {
+      margin-right: 5px;
+    }
+  }
 }
