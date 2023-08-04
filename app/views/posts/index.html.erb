@@ -2,7 +2,7 @@
   <div class= "banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/free-photo/top-view-violet-gift-box_1150-6685.jpg?size=626&ext=jpg);">
     <div class="d-block">
       <h1>Welcome to our Blog!</h1>
-      <p>Here you can find all the latest news and updates from us.</p>
+      <p>Get inspired! Read our different posts. There is always something to celebrate!</p>
     </div>
   </div>
   <div class="container pt-4">
@@ -101,7 +101,7 @@
     </div>
   </div>
   <%= paginate @posts %>
-  <% if current_user.admin? %>
+  <% if user_signed_in? && current_user.admin? %>
     <div class="btn btn-primary">
       <%= link_to "Add a new post", new_post_path %>
     </div>

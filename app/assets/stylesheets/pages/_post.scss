@@ -211,7 +211,7 @@ color: #888888;
 
 .pagination {
   justify-content: space-between;
-  width: 55%;
+  width: 73%;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -286,6 +286,7 @@ color: #888888;
     height: 400px;
     overflow: hidden;
     display: flex;
+    margin-bottom: -32px;
 
     img {
       width: 100%;
@@ -310,6 +311,15 @@ color: #888888;
     text-decoration: none;
     color: #888888;
     font-weight: normal;
+    font-size: 15px;
+  }
+
+  p2 {
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #888888;
+    font-weight: normal;
+    margin-top: 10px;
   }
 
   h1 {
