@@ -91,8 +91,8 @@
   vertical-align: middle;
 }
 
-input,
-button {
+.s_input,
+.s_button {
   color: #fff;
   font-family: Nunito;
   padding: 0;
@@ -120,14 +120,14 @@ button {
 //   height: auto;
 // }
 
-input[type="text"] {
+.s_input[type="text"] {
   width: 100%;
   height: auto;
   font-size: 24px;
   line-height: 1;
 }
 
-input[type="text"]::placeholder {
+.s_input[type="text"]::placeholder {
   color: #fff;
 }
 

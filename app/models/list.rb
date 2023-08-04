@@ -22,6 +22,7 @@ class List < ApplicationRecord
 
   validates :name, presence: true
   validates :photo_id, presence: true
+  # valdiates :event_date, comparsion: { greater_than_or_equal_to: Date.today }
 
   include PgSearch::Model
 
